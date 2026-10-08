@@ -1,0 +1,5 @@
+{
+  "tool": "run_gaussian",
+  "params": {"kind": "ts", "timeout_seconds": 300},
+  "reason": "对人工指定的候选结构进行无约束 TS 优化，计算初始 Hessian 并保留本征值检查"
+}

@@ -1,0 +1,5 @@
+{
+  "tool": "set_distance",
+  "params": {"atoms": [1, 2], "value": 1.5, "moving": [2]},
+  "reason": "演示把交换氢移到两端氢之间；此初猜未经真实计算验证"
+}

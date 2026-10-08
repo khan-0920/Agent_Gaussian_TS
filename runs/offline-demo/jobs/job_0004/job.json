@@ -1,0 +1,171 @@
+{
+  "id": "job_0004",
+  "kind": "irc_forward",
+  "level": "uhf/sto-3g|SMD:|Integral:UltraFine",
+  "spec": {
+    "kind": "irc_forward",
+    "method": "UHF",
+    "basis": "STO-3G",
+    "cpus": 2,
+    "memory_mb": 1024,
+    "max_cycles": 100,
+    "irc_max_points": 50,
+    "irc_step_size": 10,
+    "scf_xqc": false,
+    "solvent": "",
+    "constraints": []
+  },
+  "constraints": [],
+  "parent_job": "job_0002",
+  "input_structure": {
+    "symbols": [
+      "H",
+      "H",
+      "H"
+    ],
+    "positions": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.5,
+        0.0,
+        0.0
+      ],
+      [
+        3.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "atom_ids": [
+      1,
+      2,
+      3
+    ],
+    "title": "Gaussian orientation"
+  },
+  "input_structure_id": "job_0002_output",
+  "output_structure": {
+    "symbols": [
+      "H",
+      "H",
+      "H"
+    ],
+    "positions": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        2.25,
+        0.0,
+        0.0
+      ],
+      [
+        3.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "atom_ids": [
+      1,
+      2,
+      3
+    ],
+    "title": "Gaussian orientation"
+  },
+  "output_structure_id": "job_0004_output",
+  "synthetic": true,
+  "status": "completed",
+  "directory": "jobs/job_0004",
+  "wall_seconds": 0.04060549999999996,
+  "allocated_core_seconds": 0.08121099999999992,
+  "returncode": 0,
+  "log_path": "jobs/job_0004/output.log",
+  "parsed": {
+    "normal_termination": true,
+    "multi_job": false,
+    "energy_hartree": -1.5,
+    "energies_hartree": [
+      -1.5
+    ],
+    "optimization_converged": false,
+    "convergence": {},
+    "trajectory": [
+      {
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            2.25,
+            0.0,
+            0.0
+          ],
+          [
+            3.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "atom_ids": [
+          1,
+          2,
+          3
+        ],
+        "title": "Gaussian orientation"
+      }
+    ],
+    "final_structure": {
+      "symbols": [
+        "H",
+        "H",
+        "H"
+      ],
+      "positions": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.25,
+          0.0,
+          0.0
+        ],
+        [
+          3.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "atom_ids": [
+        1,
+        2,
+        3
+      ],
+      "title": "Gaussian orientation"
+    },
+    "frequencies_cm1": [],
+    "modes": [],
+    "irc_points": [
+      1,
+      2
+    ],
+    "irc_complete": true,
+    "diagnostics": [],
+    "parse_warnings": [],
+    "log_sha256": "662dd8301cd9f3e830da50ddf7d9f275974510094e29a969688399f425d8bf1d"
+  }
+}

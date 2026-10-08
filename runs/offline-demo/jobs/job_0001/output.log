@@ -1,0 +1,12 @@
+SYNTHETIC DEMO DATA -- NOT A GAUSSIAN CALCULATION
+ Standard orientation:
+ ---------------------------------------------------------------------
+ Center Atomic Atomic Coordinates (Angstroms)
+ Number Number Type X Y Z
+ ---------------------------------------------------------------------
+ 1 1 0 0.000000 0.000000 0.000000
+ 2 1 0 0.750000 0.000000 0.000000
+ 3 1 0 3.000000 0.000000 0.000000
+ ---------------------------------------------------------------------
+ Wrong number of Negative eigenvalues
+ Error termination via Lnk1e

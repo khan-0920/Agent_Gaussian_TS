@@ -1,0 +1,28 @@
+{
+  "id": "000001",
+  "action": {
+    "tool": "save_hypothesis",
+    "params": {
+      "hypothesis": "Illustrative collinear hydrogen exchange; synthetic only"
+    },
+    "reason": "record the demonstration hypothesis",
+    "actor": "agent"
+  },
+  "actor": "agent",
+  "input_structure_id": "reactant",
+  "status": "completed",
+  "started_at": 1791445782.638643,
+  "result": {
+    "text": "Illustrative collinear hydrogen exchange; synthetic only",
+    "structure_id": "reactant",
+    "action_id": "000001"
+  },
+  "output_structure_id": "reactant",
+  "finished_at": 1791445782.640279,
+  "usage": {
+    "actions": 1,
+    "jobs": 0,
+    "wall_seconds": 0.0,
+    "core_seconds": 0.0
+  }
+}

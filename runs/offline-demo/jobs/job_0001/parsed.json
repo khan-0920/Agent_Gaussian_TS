@@ -1,0 +1,80 @@
+{
+  "normal_termination": false,
+  "multi_job": false,
+  "energy_hartree": null,
+  "energies_hartree": [],
+  "optimization_converged": false,
+  "convergence": {},
+  "trajectory": [
+    {
+      "symbols": [
+        "H",
+        "H",
+        "H"
+      ],
+      "positions": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.75,
+          0.0,
+          0.0
+        ],
+        [
+          3.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "atom_ids": [
+        1,
+        2,
+        3
+      ],
+      "title": "Gaussian orientation"
+    }
+  ],
+  "final_structure": {
+    "symbols": [
+      "H",
+      "H",
+      "H"
+    ],
+    "positions": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.75,
+        0.0,
+        0.0
+      ],
+      [
+        3.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "atom_ids": [
+      1,
+      2,
+      3
+    ],
+    "title": "Gaussian orientation"
+  },
+  "frequencies_cm1": [],
+  "modes": [],
+  "irc_points": [],
+  "irc_complete": false,
+  "diagnostics": [
+    "HESSIAN_FAILURE",
+    "ERROR_TERMINATION"
+  ],
+  "parse_warnings": [],
+  "log_sha256": "568efb63c15c01983e101a9c78fe1e9092d5978102a6b2a93d7836d33e956adc"
+}

@@ -1,0 +1,12 @@
+%nprocshared=2
+%mem=1024MB
+%chk=job.chk
+#p UHF/STO-3G Opt=(TS,CalcFC,Tight,MaxCycles=100) Integral=UltraFine NoSymm
+
+Gaussian TS research: ts structure 1
+
+0 2
+H 0.0000000000 0.0000000000 0.0000000000
+H 0.7500000000 0.0000000000 0.0000000000
+H 3.0000000000 0.0000000000 0.0000000000
+

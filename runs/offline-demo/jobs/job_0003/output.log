@@ -1,0 +1,22 @@
+SYNTHETIC DEMO DATA -- NOT A GAUSSIAN CALCULATION
+ Standard orientation:
+ ---------------------------------------------------------------------
+ Center Atomic Atomic Coordinates (Angstroms)
+ Number Number Type X Y Z
+ ---------------------------------------------------------------------
+ 1 1 0 0.000000 0.000000 0.000000
+ 2 1 0 1.500000 0.000000 0.000000
+ 3 1 0 3.000000 0.000000 0.000000
+ ---------------------------------------------------------------------
+ SCF Done: E(UHF) = -1.500000000 A.U. after 10 cycles
+ Frequencies -- -500.0 100.0 200.0
+ Atom AN X Y Z X Y Z X Y Z
+ 1 1 0 0 0 0.1 0 0 0 0.1 0
+ 2 1 1 0 0 0 0 0 0 0 0
+ 3 1 0 0 0 -0.1 0 0 0 -0.1 0
+ Frequencies -- 300.0
+ Atom AN X Y Z
+ 1 1 0 0 0.1
+ 2 1 0 0 -0.2
+ 3 1 0 0 0.1
+ Normal termination of Gaussian 16

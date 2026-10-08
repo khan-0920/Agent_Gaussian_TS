@@ -1,0 +1,39 @@
+{
+  "id": "000010",
+  "action": {
+    "tool": "verify_ts",
+    "params": {},
+    "reason": "the validator must reject synthetic evidence even with a complete-looking trace",
+    "actor": "agent"
+  },
+  "actor": "agent",
+  "input_structure_id": "job_0007_output",
+  "status": "completed",
+  "started_at": 1791445782.970865,
+  "result": {
+    "label": "INCONCLUSIVE",
+    "checks": [
+      {
+        "name": "unconstrained_stationary_point",
+        "passed": false,
+        "detail": "normal end, all four criteria, energy, geometry, unconstrained real calculation"
+      }
+    ],
+    "evidence_jobs": [
+      "job_0002"
+    ],
+    "validated": false,
+    "limitations": [
+      "Endpoint identity uses fixed atom mapping, distance matrices and target bond distances.",
+      "No activation energy/free energy is reported; no thermochemical reference-state analysis."
+    ]
+  },
+  "output_structure_id": "job_0007_output",
+  "finished_at": 1791445782.975132,
+  "usage": {
+    "actions": 10,
+    "jobs": 7,
+    "wall_seconds": 0.21253695900000036,
+    "core_seconds": 0.4250739180000007
+  }
+}

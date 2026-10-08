@@ -1,0 +1,25 @@
+{
+  "id": "000011",
+  "action": {
+    "tool": "pause",
+    "params": {},
+    "reason": "offline demonstration finished; real Gaussian/LLM scientific acceptance is outstanding",
+    "actor": "agent"
+  },
+  "actor": "agent",
+  "input_structure_id": "job_0007_output",
+  "status": "completed",
+  "started_at": 1791445782.978654,
+  "result": {
+    "paused": true,
+    "question": null
+  },
+  "output_structure_id": "job_0007_output",
+  "finished_at": 1791445782.980273,
+  "usage": {
+    "actions": 11,
+    "jobs": 7,
+    "wall_seconds": 0.21253695900000036,
+    "core_seconds": 0.4250739180000007
+  }
+}

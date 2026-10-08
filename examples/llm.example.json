@@ -1,0 +1,7 @@
+{
+  "endpoint": "https://YOUR_LLM_HOST/v1/chat/completions",
+  "model": "YOUR_MODEL",
+  "api_key_env": "TS_LLM_API_KEY",
+  "timeout_seconds": 45,
+  "max_tokens": 1500
+}

@@ -1,0 +1,199 @@
+{
+  "id": "000007",
+  "action": {
+    "tool": "run_gaussian",
+    "params": {
+      "kind": "irc_reverse",
+      "structure_id": "job_0002_output",
+      "parent_job": "job_0002",
+      "timeout_seconds": 5
+    },
+    "reason": "collect separate synthetic validation evidence at the same TS geometry",
+    "actor": "agent"
+  },
+  "actor": "agent",
+  "input_structure_id": "job_0002_output",
+  "status": "completed",
+  "started_at": 1791445782.884198,
+  "result": {
+    "job": {
+      "id": "job_0005",
+      "kind": "irc_reverse",
+      "level": "uhf/sto-3g|SMD:|Integral:UltraFine",
+      "spec": {
+        "kind": "irc_reverse",
+        "method": "UHF",
+        "basis": "STO-3G",
+        "cpus": 2,
+        "memory_mb": 1024,
+        "max_cycles": 100,
+        "irc_max_points": 50,
+        "irc_step_size": 10,
+        "scf_xqc": false,
+        "solvent": "",
+        "constraints": []
+      },
+      "constraints": [],
+      "parent_job": "job_0002",
+      "input_structure": {
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.5,
+            0.0,
+            0.0
+          ],
+          [
+            3.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "atom_ids": [
+          1,
+          2,
+          3
+        ],
+        "title": "Gaussian orientation"
+      },
+      "input_structure_id": "job_0002_output",
+      "output_structure": {
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "positions": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0
+          ],
+          [
+            3.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "atom_ids": [
+          1,
+          2,
+          3
+        ],
+        "title": "Gaussian orientation"
+      },
+      "output_structure_id": "job_0005_output",
+      "synthetic": true,
+      "status": "completed",
+      "directory": "jobs/job_0005",
+      "wall_seconds": 0.019005292000000007,
+      "allocated_core_seconds": 0.038010584000000014,
+      "returncode": 0,
+      "log_path": "jobs/job_0005/output.log",
+      "parsed": {
+        "normal_termination": true,
+        "multi_job": false,
+        "energy_hartree": -1.5,
+        "energies_hartree": [
+          -1.5
+        ],
+        "optimization_converged": false,
+        "convergence": {},
+        "trajectory": [
+          {
+            "symbols": [
+              "H",
+              "H",
+              "H"
+            ],
+            "positions": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.75,
+                0.0,
+                0.0
+              ],
+              [
+                3.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "atom_ids": [
+              1,
+              2,
+              3
+            ],
+            "title": "Gaussian orientation"
+          }
+        ],
+        "final_structure": {
+          "symbols": [
+            "H",
+            "H",
+            "H"
+          ],
+          "positions": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.75,
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "atom_ids": [
+            1,
+            2,
+            3
+          ],
+          "title": "Gaussian orientation"
+        },
+        "frequencies_cm1": [],
+        "modes": [],
+        "irc_points": [
+          1,
+          2
+        ],
+        "irc_complete": true,
+        "diagnostics": [],
+        "parse_warnings": [],
+        "log_sha256": "811fee7ec53abbc42cbf0b466c6b0948b13c04de36a404aa73c142fcc20b874f"
+      }
+    }
+  },
+  "output_structure_id": "job_0002_output",
+  "finished_at": 1791445782.909256,
+  "usage": {
+    "actions": 7,
+    "jobs": 5,
+    "wall_seconds": 0.17461329300000017,
+    "core_seconds": 0.34922658600000034
+  }
+}

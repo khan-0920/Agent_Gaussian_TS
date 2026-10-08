@@ -1,0 +1,12 @@
+%nprocshared=2
+%mem=1024MB
+%chk=job.chk
+#p UHF/STO-3G Freq Integral=UltraFine NoSymm
+
+Gaussian TS research: freq structure 1
+
+0 2
+H 0.0000000000 0.0000000000 0.0000000000
+H 1.5000000000 0.0000000000 0.0000000000
+H 3.0000000000 0.0000000000 0.0000000000
+

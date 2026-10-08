@@ -1,0 +1,100 @@
+{
+  "normal_termination": true,
+  "multi_job": false,
+  "energy_hartree": -1.5,
+  "energies_hartree": [
+    -1.5
+  ],
+  "optimization_converged": true,
+  "convergence": {
+    "Maximum Force": {
+      "value": 1e-06,
+      "threshold": 0.00045,
+      "passed": true
+    },
+    "RMS Force": {
+      "value": 1e-06,
+      "threshold": 0.0003,
+      "passed": true
+    },
+    "Maximum Displacement": {
+      "value": 1e-06,
+      "threshold": 0.0018,
+      "passed": true
+    },
+    "RMS Displacement": {
+      "value": 1e-06,
+      "threshold": 0.0012,
+      "passed": true
+    }
+  },
+  "trajectory": [
+    {
+      "symbols": [
+        "H",
+        "H",
+        "H"
+      ],
+      "positions": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.5,
+          0.0,
+          0.0
+        ],
+        [
+          3.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "atom_ids": [
+        1,
+        2,
+        3
+      ],
+      "title": "Gaussian orientation"
+    }
+  ],
+  "final_structure": {
+    "symbols": [
+      "H",
+      "H",
+      "H"
+    ],
+    "positions": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.5,
+        0.0,
+        0.0
+      ],
+      [
+        3.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "atom_ids": [
+      1,
+      2,
+      3
+    ],
+    "title": "Gaussian orientation"
+  },
+  "frequencies_cm1": [],
+  "modes": [],
+  "irc_points": [],
+  "irc_complete": false,
+  "diagnostics": [],
+  "parse_warnings": [],
+  "log_sha256": "9b78a0c9639ed9b49b7b82ca2e16d93f96badde2c1390382db455dd4ae64cd06"
+}

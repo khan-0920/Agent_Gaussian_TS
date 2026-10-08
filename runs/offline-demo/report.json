@@ -1,0 +1,32 @@
+{
+  "label": "INCONCLUSIVE",
+  "checks": [
+    {
+      "name": "unconstrained_stationary_point",
+      "passed": false,
+      "detail": "normal end, all four criteria, energy, geometry, unconstrained real calculation"
+    }
+  ],
+  "evidence_jobs": [
+    "job_0002"
+  ],
+  "validated": false,
+  "limitations": [
+    "Endpoint identity uses fixed atom mapping, distance matrices and target bond distances.",
+    "No activation energy/free energy is reported; no thermochemical reference-state analysis."
+  ],
+  "usage": {
+    "actions": 11,
+    "jobs": 7,
+    "wall_seconds": 0.21253695900000036,
+    "core_seconds": 0.4250739180000007
+  },
+  "last_error": null,
+  "hypotheses": [
+    {
+      "text": "Illustrative collinear hydrogen exchange; synthetic only",
+      "structure_id": "reactant",
+      "action_id": "000001"
+    }
+  ]
+}
