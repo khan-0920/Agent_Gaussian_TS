@@ -21,6 +21,14 @@ class GaussianTests(unittest.TestCase):
         self.assertNotIn('NoEigenTest', inp)
         self.assertIn('0 2\nH', inp)
 
+    def test_irc_recovery_options_are_validated(self):
+        inp = prepare_input(self.r, self.s, JobSpec('irc_forward', irc_algorithm='LQA', irc_max_cycle=100))
+        self.assertIn('LQA,MaxCycle=100', inp)
+        self.assertIn('Forward,CalcFC', inp)
+        for kwargs in [{'irc_algorithm': 'LQA) NoEigenTest'}, {'irc_max_cycle': 0}, {'irc_max_cycle': True}]:
+            with self.assertRaises(ValueError):
+                JobSpec('irc_forward', **kwargs)
+
     def test_modredundant_maps_stable_ids_to_gaussian_indices(self):
         inp = prepare_input(self.r, self.s, JobSpec('frozen_opt', constraints=({'type': 'B', 'atoms': [10, 30], 'operation': 'F'},)))
         self.assertIn('\nB 1 3 F\n', inp)

@@ -84,7 +84,8 @@ def tool_catalog():
     from .gaussian import KINDS
     properties = {'kind': {'type': 'string', 'enum': list(KINDS)}, 'structure_id': text, 'parent_job': text,
                   'method': text, 'basis': text, 'cpus': positive_int, 'memory_mb': positive_int,
-                  'max_cycles': positive_int, 'irc_max_points': positive_int, 'irc_step_size': positive_int,
+                  'max_cycles': positive_int, 'irc_max_points': positive_int, 'irc_step_size': positive_int, 'irc_max_cycle': positive_int,
+                  'irc_algorithm': {'enum': ['HPC', 'LQA', 'EulerPC']},
                   'scf_xqc': {'type': 'boolean'}, 'solvent': {'enum': ['', 'Water', 'Acetonitrile', 'Methanol', 'Ethanol', 'Toluene', 'Dichloromethane']},
                   'constraints': {'type': 'array', 'items': constraint}, 'timeout_seconds': {'type': 'number', 'exclusiveMinimum': 0}}
     register('run_gaussian', 'Submit one budgeted local Gaussian job. Freq/IRC/endpoint require matching parent geometry and level. No raw shell or route.',

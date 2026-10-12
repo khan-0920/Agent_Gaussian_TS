@@ -62,3 +62,7 @@ python3 -m gaussian_ts report --run-dir runs/reaction-001
 当前端点身份/模式检查支持人工给定的目标键集合，并非通用复杂机理识别。证据不适配当前规则时明确为不确定，保留原始结果供人工/扩展验证器分析。
 
 独立 HTTPPolicy/Agent 是可选的宿主集成和测试入口；主工作流不需要它们。研究级验收仍需要真实 Gaussian、真实反应数据及完整频率/IRC/端点证据。
+
+## Theozyme 专项指导
+
+构建催化残基/金属簇的反应任务可参考 [可复用 Prompt](THEOZYME_REUSABLE_PROMPT.md) 和 [Nazarov 过程记录](THEOZYME_NAZAROV_LESSONS.md)。案例的已完成检查与未完成验证分别记录，不自动恢复历史计算。

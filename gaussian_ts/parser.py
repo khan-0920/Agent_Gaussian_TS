@@ -11,6 +11,20 @@ def number(text):
 
 
 def parse_log(text, atom_ids=None):
+    # Gaussian Opt+Freq emits independent internal steps. Expose each step,
+    # but never merge their scientific evidence into a single job record.
+    boundary = r'(?m)^\s*Link1:\s*Proceeding to internal job step number\s+\d+\.?\s*$'
+    parts = re.split(boundary, text)
+    if len(parts) > 1:
+        steps = [parse_log(part, atom_ids) for part in parts]
+        result = parse_log('', atom_ids)
+        result.update(
+            multi_job=True,
+            normal_termination=all(step['normal_termination'] for step in steps),
+            steps=steps,
+            diagnostics=['MULTI_JOB_REQUIRES_STEP_SELECTION'],
+            log_sha256=hashlib.sha256(text.encode()).hexdigest())
+        return result
     lines = text.splitlines()
     normal_positions = [m.start() for m in re.finditer(r'Normal termination of Gaussian', text)]
     error_positions = [m.start() for m in re.finditer(r'Error termination', text)]
@@ -60,7 +74,7 @@ def parse_log(text, atom_ids=None):
     if len(tables) > 1:
         table = tables[-1]
         for label in labels:
-            m = re.search(re.escape(label) + r'\s+(' + NUMBER + r')\s+(' + NUMBER + r')\s+(YES|NO)', table)
+            m = re.search(r'\s+'.join(re.escape(word) for word in label.split()) + r'\s+(' + NUMBER + r')\s+(' + NUMBER + r')\s+(YES|NO)', table)
             if m:
                 convergence[label] = {'value': number(m[1]), 'threshold': number(m[2]), 'passed': m[3] == 'YES' and number(m[1]) <= number(m[2])}
     converged = normal and 'Optimization completed.' in text and len(convergence) == 4 and all(x['passed'] for x in convergence.values())

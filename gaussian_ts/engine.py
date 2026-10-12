@@ -259,6 +259,8 @@ class Session:
         if spec.kind == 'freq' or spec.kind.startswith('irc_') or spec.kind.startswith('endpoint_'):
             parent = next((j for j in self.state['jobs'] if j['id'] == parent_id), None)
             allowed_parent = TS_KINDS if not spec.kind.startswith('endpoint_') else ('irc_' + spec.kind.split('_', 1)[1],)
+            if spec.kind == 'freq':
+                allowed_parent = tuple(TS_KINDS) + ('opt', 'endpoint_forward', 'endpoint_reverse')
             if not parent or parent['kind'] not in allowed_parent or parent['status'] != 'completed' or not same_geometry(entry['data'], parent.get('output_structure')):
                 raise ValueError('frequency/IRC/endpoint requires the corresponding completed parent and its output geometry')
             if parent['level'] != spec.level:

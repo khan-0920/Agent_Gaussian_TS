@@ -126,3 +126,22 @@ parsed = parse_log(raw_text, atom_ids=structure.atom_ids)
 - `INCONCLUSIVE`：无候选、模拟数据、结构/水平/模式证据不完整或不确定。
 
 原始日志被改写后不能复用先前通过的证据。完整报告包含逐项检查、关联作业、预算、假设、错误和明确限制；不提供没有 thermochemistry 证据的能垒数值。
+
+
+## Gaussian 16 C.02 实际日志兼容
+
+收敛表标签允许多个空格或制表符，包括 `RMS     Force`。
+对于带 `Link1: Proceeding to internal job step number` 的内部步骤日志，
+`parse_log` 返回 `steps`，其中各步独立包含收敛、结构、能量与频率。
+顶层 `normal_termination` 仅在全部步骤正常结束时为 true；
+`multi_job` 仍为 true，顶层科学证据字段留空，不自动拼接跨步骤证据。
+TS 独立验证仍使用分别提交并关联的 TS/Freq/IRC 作业。
+缺失结束标记、失败步骤或任意拼接日志不会变成有效 TS 证据。
+
+真实回归样本：`tests/fixtures/g16_c02_ammonia_opt_freq.log`，来自本机
+Gaussian 16 C.02 的氨分子 HF/STO-3G Opt+Freq 安装测试；不代表 TS 基准。
+
+IRC recovery options: `irc_algorithm` accepts HPC (default), LQA or EulerPC;
+`irc_max_cycle` is a positive integer (default 20). These affect the path
+integrator only, not the electronic calculation level or acceptance criteria.
+Use a new audited action for retries; retain original failed jobs.

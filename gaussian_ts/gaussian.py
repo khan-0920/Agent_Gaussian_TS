@@ -3,7 +3,7 @@ import re
 from dataclasses import dataclass, asdict
 from .models import integer, finite
 
-KINDS = ('opt', 'frozen_opt', 'scan', 'ts', 'qst2', 'qst3', 'freq', 'irc_forward', 'irc_reverse', 'endpoint_forward', 'endpoint_reverse')
+KINDS = ('stable', 'opt', 'frozen_opt', 'scan', 'ts', 'qst2', 'qst3', 'freq', 'irc_forward', 'irc_reverse', 'endpoint_forward', 'endpoint_reverse')
 TS_KINDS = ('ts', 'qst2', 'qst3')
 OPT_KINDS = ('opt', 'frozen_opt', 'scan') + TS_KINDS + ('endpoint_forward', 'endpoint_reverse')
 
@@ -18,6 +18,9 @@ class JobSpec:
     max_cycles: int = 100
     irc_max_points: int = 50
     irc_step_size: int = 10
+    irc_algorithm: str = "HPC"
+    irc_max_cycle: int = 20
+    guess_mix: bool = False
     scf_xqc: bool = False
     solvent: str = ''
     constraints: tuple = ()
@@ -31,8 +34,12 @@ class JobSpec:
                 raise ValueError('invalid %s; raw route sections are prohibited' % name)
         if self.method.lower() in ('gen', 'genecp') or self.basis.lower() in ('gen', 'genecp'):
             raise ValueError('custom basis sections are not supported')
-        for name in ('cpus', 'memory_mb', 'max_cycles', 'irc_max_points', 'irc_step_size'):
+        for name in ('cpus', 'memory_mb', 'max_cycles', 'irc_max_points', 'irc_step_size', 'irc_max_cycle'):
             integer(getattr(self, name), name, 1)
+        if self.irc_algorithm not in ('HPC', 'LQA', 'EulerPC'):
+            raise ValueError('unsupported IRC algorithm')
+        if not isinstance(self.guess_mix, bool):
+            raise ValueError('guess_mix must be boolean')
         if not isinstance(self.scf_xqc, bool):
             raise ValueError('scf_xqc must be boolean')
         if self.solvent not in ('', 'Water', 'Acetonitrile', 'Methanol', 'Ethanol', 'Toluene', 'Dichloromethane'):
@@ -89,14 +96,18 @@ def prepare_input(reaction, structure, spec):
         operation = 'Opt=(%s,CalcFC,Tight,MaxCycles=%d)' % (option, spec.max_cycles)
     elif spec.kind in ('frozen_opt', 'scan'):
         operation = 'Opt=(ModRedundant,Tight,MaxCycles=%d)' % spec.max_cycles
+    elif spec.kind == 'stable':
+        operation = 'Stable=Opt'
     elif spec.kind == 'freq':
         operation = 'Freq'
     elif spec.kind.startswith('irc_'):
         direction = 'Forward' if spec.kind == 'irc_forward' else 'Reverse'
-        operation = 'IRC=(%s,CalcFC,MaxPoints=%d,StepSize=%d)' % (direction, spec.irc_max_points, spec.irc_step_size)
+        operation = 'IRC=(%s,CalcFC,MaxPoints=%d,StepSize=%d,%s,MaxCycle=%d)' % (direction, spec.irc_max_points, spec.irc_step_size, spec.irc_algorithm, spec.irc_max_cycle)
     else:
         operation = 'Opt=(Tight,MaxCycles=%d)' % spec.max_cycles
     route = '#p %s/%s %s Integral=UltraFine NoSymm' % (spec.method, spec.basis, operation)
+    if spec.guess_mix:
+        route += ' Guess=Mix'
     if spec.scf_xqc:
         route += ' SCF=XQC'
     if spec.solvent:
