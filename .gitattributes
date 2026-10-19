@@ -1,0 +1,3 @@
+# Preserve exact model-input snapshots (including generator whitespace) for hash auditing.
+examples/enzyme_smoke/*.cif whitespace=-blank-at-eol
+examples/enzyme_smoke/*.params whitespace=-blank-at-eol

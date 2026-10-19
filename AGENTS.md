@@ -24,3 +24,5 @@ python3 -m gaussian_ts report --run-dir runs/NEW_RUN
 只有原始真实证据经验证器得到 `VALIDATED_TS` 时才能称为已验证目标过渡态。模拟日志、正常结束、单个虚频都不足以单独证明成功；不替 LLM 的判断制造频率或 IRC 证据。
 
 工程开发验证：`python3 -m unittest discover -v`。核心无第三方运行依赖。真实 Gaussian/许可/主机环境由用户提供；没有 g16/g09 时可运行 `python3 -m examples.offline_demo` 检查工程链路，科学验收保持未完成。
+
+执行 theozyme 到候选酶的计算时读 `docs/ENZYME_DESIGN.md`。用 `python3 -m enzyme_design init/context/apply/report` 或 `gaussian_ts enzyme` 接口；每次动作带 reason，先核对化学身份、固定 motif、状态和预算。RFD3 必须显式指向 rc-foundry 1.0.0 的环境；旧 rfd3 环境可能仍存在。工具的计算完成、几何通过和模型置信度不表示催化活性或 TS 验证。失败日志、模型原始输出、输入/输出哈希与尝试目录必须保留。

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "gpu": 4,
+  "cpus": 4,
+  "environment": {
+    "FOUNDRY_CHECKPOINT_DIRS": "/home/guest/.foundry/checkpoints",
+    "HF_HOME": "/data2/guest/enzyme_design/cache/huggingface",
+    "RFD3_COMPILE_CACHE_DIR": "/data2/guest/agent_ts_enzyme_smoke_20261019/compile_cache",
+    "TORCHINDUCTOR_COMPILE_THREADS": "1",
+    "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1"
+  },
+  "tools": {
+    "prepare": {
+      "python": "/data2/guest/rfd3_foundry1_20261018/env_validated/bin/python"
+    },
+    "generate": {
+      "python": "/data2/guest/rfd3_foundry1_20261018/env_validated/bin/python",
+      "executable": "/data2/guest/rfd3_foundry1_20261018/env_validated/bin/rfd3",
+      "checkpoint": "/home/guest/.foundry/checkpoints/rfd3_latest.ckpt",
+      "expected_foundry": "1.0.0"
+    },
+    "sequence": {
+      "python": "/home/guest/miniconda3/envs/mpnn/bin/python",
+      "repo": "/home/guest/software/LigandMPNN",
+      "checkpoint": "/home/guest/software/LigandMPNN/model_params/ligandmpnn_v_32_010_25.pt",
+      "packer_checkpoint": "/home/guest/software/LigandMPNN/model_params/ligandmpnn_sc_v_32_002_16.pt"
+    },
+    "relax": {
+      "python": "/home/guest/miniconda3/envs/pyrosetta/bin/python"
+    },
+    "refold": {
+      "python": "/home/guest/miniconda3/envs/rf3/bin/python",
+      "executable": "/home/guest/software/bin/rf3",
+      "checkpoint": "/data2/guest/enzyme_design/models/rf3/rf3_latest.ckpt"
+    },
+    "assess": {
+      "python": "/home/guest/miniconda3/envs/placer/bin/python",
+      "repo": "/home/guest/software/PLACER",
+      "checkpoint": "/home/guest/software/PLACER/weights/PLACER_model_1.pt"
+    },
+    "select": {
+      "python": "/usr/bin/python3"
+    }
+  }
+}

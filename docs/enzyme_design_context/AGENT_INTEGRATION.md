@@ -38,7 +38,7 @@
 
 ## 交接到蛋白设计
 
-Gaussian 工具包负责计算和证据；RFD、MPNN、Rosetta、结构回预测和 PLACER 是后续独立环节。目前没有因本次文档整合而新增自动执行器。
+Gaussian 工具包负责计算和证据；RFD、MPNN、Rosetta、结构回预测和 PLACER 是后续独立环节。后续实现的 [酶设计工具接口](../ENZYME_DESIGN.md)可通过独立 campaign 执行这些阶段；它有独立输入契约、环境配置和预算，不自动执行历史 V1 配置，也不改变 Gaussian 的验证规则。
 
 | 交接内容 | 必须包含的依据 |
 | --- | --- |

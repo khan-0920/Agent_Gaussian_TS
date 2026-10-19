@@ -12,6 +12,7 @@ dependencies = []
 
 [project.scripts]
 gaussian-ts = "gaussian_ts.cli:main"
+enzyme-design = "enzyme_design.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["gaussian_ts*"]
+include = ["gaussian_ts*", "enzyme_design*"]

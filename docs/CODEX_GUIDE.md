@@ -8,6 +8,8 @@
 
 将采用的路线、来源 ID、模型假设和待核查项写入现有 problem 字段；CLI 的 context 只返回本次运行状态，不自动加载文献。历史 V1 的组分选择、计算设置及服务器状态不覆盖本次用户条件。论文阈值和历史案例标签不能替代当前独立验证器。
 
+已有明确 theozyme 后，按 [酶设计工具接口](ENZYME_DESIGN.md)建立独立 campaign。`python3 -m gaussian_ts enzyme tools` 提供生成、序列设计、优化、回预测、集合评估和筛选工具；Gaussian session 与酶设计 campaign 分别保存证据，不自动把上游假设提升为已验证 TS。
+
 ## 定义问题
 
 先写一个 `problem.json`，包含 question、fixed_conditions、hypotheses、uncertainties 和可选 notes，示例见 `examples/problem.json`。问题应明确目标基元步骤、哪些条件固定、哪些机理是待检验假设及什么证据才算成功。

@@ -32,6 +32,10 @@ def init_session(config_path, run_dir):
 
 
 def main(argv=None):
+    effective_argv = list(sys.argv[1:] if argv is None else argv)
+    if effective_argv and effective_argv[0] == 'enzyme':
+        from enzyme_design.cli import main as enzyme_main
+        return enzyme_main(effective_argv[1:])
     parser = argparse.ArgumentParser(description='Gaussian transition-state problem and tool kit for Codex/GPT')
     sub = parser.add_subparsers(dest='command', required=True)
     init = sub.add_parser('init', help='initialize a human-guided research session')

@@ -28,7 +28,9 @@ python3 -m gaussian_ts apply --run-dir runs/reaction-001 \
 
 已将此前多工作流研究整合到 [酶设计上下文入口](docs/enzyme_design_context/README.md)：包括 17 篇研究、13 类路线、RFD 专项流程、来源核查记录及历史 Gaussian → RFD3 → LigandMPNN → Rosetta → 结构回预测 → PLACER 方案。[项目衔接说明](docs/enzyme_design_context/AGENT_INTEGRATION.md)说明选路、问题定义、TS 证据与下游交接的关系。
 
-这些资料由 Codex 在相关任务中按需读取；运行状态 `context` 和可选 HTTPPolicy 不会自动注入整本文献库。文献快照、项目特定条件与当前已实现能力分别标注；本次整合不代表已经部署蛋白设计执行流水线。
+这些资料由 Codex 在相关任务中按需读取；运行状态 `context` 和可选 HTTPPolicy 不会自动注入整本文献库。文献快照、项目特定条件与当前已实现能力分别标注。
+
+新增的 [Theozyme → 候选酶工具](docs/ENZYME_DESIGN.md)提供 `python3 -m gaussian_ts enzyme ...` / `python3 -m enzyme_design ...` 接口：RFD3 1.0.0 → LigandMPNN → PyRosetta → RF3 → PLACER → 筛选交付。输入、化学映射、状态、预算和运行环境均显式配置，每阶段保留原始证据。计算结果不等于已验证 TS 或实验酶活性；支持范围及真实运行记录见文档。
 
 ## 已有能力
 

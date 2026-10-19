@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "name": "zn_his3_engineering_smoke",
+  "theozyme": "theozyme.cif",
+  "evidence": {
+    "status": "hypothesis",
+    "description": "Existing Zn-His3 Nazarov theozyme hypothesis at TS-like coordinates with stable reactant bond graph; engineering integration test only, not validated TS or enzyme activity."
+  },
+  "motif": {
+    "A1": [
+      "CB",
+      "CG",
+      "ND1",
+      "CE1",
+      "NE2",
+      "CD2"
+    ],
+    "B1": [
+      "CB",
+      "CG",
+      "ND1",
+      "CE1",
+      "NE2",
+      "CD2"
+    ],
+    "C1": [
+      "CB",
+      "CG",
+      "ND1",
+      "CE1",
+      "NE2",
+      "CD2"
+    ]
+  },
+  "ligands": [
+    {
+      "residue": "L1",
+      "name": "ZTS70",
+      "pdb_name": "LIG",
+      "sdf": "substrate.sdf",
+      "atom_map": {
+        "O1": 0,
+        "C2": 1,
+        "C3": 2,
+        "C4": 3,
+        "C5": 4,
+        "C6": 5,
+        "C7": 6,
+        "C8": 7,
+        "C9": 8,
+        "C10": 9,
+        "C11": 10,
+        "C12": 11,
+        "C13": 12,
+        "C14": 13,
+        "C15": 14,
+        "C16": 15,
+        "O17": 16
+      },
+      "predict": true,
+      "rosetta_params": "substrate.params",
+      "rosetta_atom_map": {
+        "O1": "O1",
+        "C2": "C1",
+        "C3": "C2",
+        "C4": "C3",
+        "C5": "C4",
+        "C6": "C5",
+        "C7": "C6",
+        "C8": "C7",
+        "C9": "C8",
+        "C10": "C9",
+        "C11": "C10",
+        "C12": "C11",
+        "C13": "C12",
+        "C14": "C13",
+        "C15": "C14",
+        "C16": "C15",
+        "O17": "O2"
+      }
+    },
+    {
+      "residue": "Z1",
+      "name": "ZN",
+      "ccd": "ZN",
+      "predict": false
+    }
+  ],
+  "constraints": [
+    {
+      "name": "A1_Zn",
+      "type": "distance",
+      "atoms": [
+        "A1:NE2",
+        "Z1:ZN"
+      ],
+      "min": 1.6583019733428954,
+      "max": 2.3583019733428956,
+      "states": [
+        "design",
+        "holo"
+      ]
+    },
+    {
+      "name": "B1_Zn",
+      "type": "distance",
+      "atoms": [
+        "B1:NE2",
+        "Z1:ZN"
+      ],
+      "min": 1.6576642036437987,
+      "max": 2.357664203643799,
+      "states": [
+        "design",
+        "holo"
+      ]
+    },
+    {
+      "name": "C1_Zn",
+      "type": "distance",
+      "atoms": [
+        "C1:ND1",
+        "Z1:ZN"
+      ],
+      "min": 1.6650988101959228,
+      "max": 2.365098810195923,
+      "states": [
+        "design",
+        "holo"
+      ]
+    },
+    {
+      "name": "L1_Zn",
+      "type": "distance",
+      "atoms": [
+        "L1:O1",
+        "Z1:ZN"
+      ],
+      "min": 1.5915935277938842,
+      "max": 2.2915935277938844,
+      "states": [
+        "design",
+        "holo"
+      ]
+    }
+  ],
+  "states": [
+    {
+      "name": "holo",
+      "description": "Stable reactant substrate and Zn; not an explicit TS bond graph.",
+      "ligands": [
+        "L1",
+        "Z1"
+      ]
+    }
+  ],
+  "generation": {
+    "length": [
+      160,
+      160
+    ],
+    "backbones": 2,
+    "seed": 20261017,
+    "inference_mode": "fast",
+    "timesteps": 200,
+    "ligands": [
+      "L1",
+      "Z1"
+    ]
+  },
+  "sequence": {
+    "per_backbone": 1,
+    "temperature": 0.1
+  },
+  "relax": {
+    "repeats": 1,
+    "coordinate_sd": 0.2,
+    "residue_types": {
+      "A1": "HIS_D",
+      "B1": "HIS_D",
+      "C1": "HIS"
+    }
+  },
+  "refold": {
+    "recycles": 10,
+    "steps": 50
+  },
+  "assess": {
+    "samples": 2
+  },
+  "selection": {
+    "max_candidates": 2,
+    "max_sequence_identity": 0.8,
+    "max_backbone_rmsd": 2.0,
+    "min_plddt": 0.7,
+    "min_geometry_fraction": 0.5
+  },
+  "limits": {
+    "max_attempts": 21,
+    "stage_timeout_seconds": 1800,
+    "total_seconds": 10800
+  }
+}

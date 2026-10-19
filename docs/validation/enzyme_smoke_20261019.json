@@ -1,0 +1,1073 @@
+{
+  "run_dir": "/data2/guest/agent_ts_enzyme_smoke_20261019/run02",
+  "checked_at_utc": "2026-10-19T08:06:18.456708+00:00",
+  "status": "COMPUTATION_COMPLETE",
+  "scope": "Real model engineering smoke test of hypothetical Zn-His3 geometry; not validated TS or enzyme activity.",
+  "input_files": {
+    "inputs/000_theozyme.cif": {
+      "sha256": "5739fee733b8656285ded34514eef16bb00513982cf6bb417dc07436d1166e68",
+      "source": "/data2/guest/agent_ts_enzyme_smoke_20261019/theozyme.cif",
+      "role": "theozyme"
+    },
+    "inputs/001_substrate.sdf": {
+      "sha256": "20dbe2717064eb32fa0578bb0dc2093e21615804be644a39f0625229211bd33b",
+      "source": "/data2/guest/agent_ts_enzyme_smoke_20261019/substrate.sdf",
+      "role": "ligands.0.sdf"
+    },
+    "inputs/002_substrate.params": {
+      "sha256": "6f4c8dba31894aa3a184b0815d8afb7a1dbe734161f588e98c512113537e779d",
+      "source": "/data2/guest/agent_ts_enzyme_smoke_20261019/substrate.params",
+      "role": "ligands.0.rosetta_params"
+    },
+    "spec.json": {
+      "sha256": "efb59fba3ce9cd82cc0e7ec2acdc846e3977c002c13b7805139a3bed64380921",
+      "role": "configuration"
+    },
+    "profile.json": {
+      "sha256": "38aae3fb377d156101bbfaec7c7def9a2ae70f261e2142bd82726f469748c84d",
+      "role": "configuration"
+    }
+  },
+  "limits": {
+    "max_attempts": 21,
+    "stage_timeout_seconds": 1800,
+    "total_seconds": 10800
+  },
+  "usage": {
+    "attempts": 10,
+    "seconds": 123.02478987933137
+  },
+  "stages": {
+    "prepare": {
+      "status": "completed",
+      "attempts": [
+        {
+          "index": 1,
+          "status": "completed",
+          "reason": "Validate full tool chain with explicit Cartesian motif preservation after LigandMPNN torsion reconstruction and RFD3 clash gate; retain run01 unchanged",
+          "error": null,
+          "log": "steps/prepare/0001/worker.log"
+        }
+      ],
+      "result": "steps/prepare/0001/result.json",
+      "result_sha256": "00bce20ed8893d1a3e4565182a428c3c74c90b9f8854af4e024900d00e200a51",
+      "summary": {
+        "rfd3_input": "steps/prepare/0001/rfd3_input.json",
+        "reference_pdb": "steps/prepare/0001/reference.pdb",
+        "chemical_inventory": [
+          {
+            "residue": "L1",
+            "name": "ZTS70",
+            "atoms": 17,
+            "formal_charge": 0,
+            "smiles": "C/C(=C\\C(=O)C1=CCCCO1)c1ccccc1"
+          },
+          {
+            "residue": "Z1",
+            "name": "ZN",
+            "atoms": 1,
+            "ccd": "ZN"
+          }
+        ],
+        "geometry": {
+          "design": {
+            "state": "design",
+            "passed": true,
+            "constraints": [
+              {
+                "name": "A1_Zn",
+                "type": "distance",
+                "value": 2.008301951476344,
+                "min": 1.6583019733428954,
+                "max": 2.3583019733428956,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "B1_Zn",
+                "type": "distance",
+                "value": 2.007664229760201,
+                "min": 1.6576642036437987,
+                "max": 2.357664203643799,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "C1_Zn",
+                "type": "distance",
+                "value": 2.0150989668449912,
+                "min": 1.6650988101959228,
+                "max": 2.365098810195923,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "L1_Zn",
+                "type": "distance",
+                "value": 1.9415936019740707,
+                "min": 1.5915935277938842,
+                "max": 2.2915935277938844,
+                "error": null,
+                "passed": true
+              }
+            ],
+            "missing_geometry": false
+          },
+          "holo": {
+            "state": "holo",
+            "passed": true,
+            "constraints": [
+              {
+                "name": "A1_Zn",
+                "type": "distance",
+                "value": 2.008301951476344,
+                "min": 1.6583019733428954,
+                "max": 2.3583019733428956,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "B1_Zn",
+                "type": "distance",
+                "value": 2.007664229760201,
+                "min": 1.6576642036437987,
+                "max": 2.357664203643799,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "C1_Zn",
+                "type": "distance",
+                "value": 2.0150989668449912,
+                "min": 1.6650988101959228,
+                "max": 2.365098810195923,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "L1_Zn",
+                "type": "distance",
+                "value": 1.9415936019740707,
+                "min": 1.5915935277938842,
+                "max": 2.2915935277938844,
+                "error": null,
+                "passed": true
+              }
+            ],
+            "missing_geometry": false
+          }
+        },
+        "evidence": {
+          "status": "hypothesis",
+          "description": "Existing Zn-His3 Nazarov theozyme hypothesis at TS-like coordinates with stable reactant bond graph; engineering integration test only, not validated TS or enzyme activity."
+        },
+        "validated_ts": false,
+        "evidence_scope": "External reports are retained as provenance; no TS validation is inferred from supplied status."
+      },
+      "provenance": {
+        "python": "/data2/guest/rfd3_foundry1_20261018/env_validated/bin/python",
+        "python_version": "3.12.15",
+        "versions": {
+          "rc-foundry": "1.0.0",
+          "torch": "2.11.0",
+          "atomworks": "3.0.1",
+          "biotite": "1.6.0",
+          "rdkit": "2026.9.1",
+          "numpy": "2.5.4"
+        },
+        "weights": {},
+        "sources": {
+          "worker_sha256": "45eac6fbe108fb43f50196cbe7ca6b8fafcaf1333dab4250d75c223bf3c6b88e",
+          "adapters.py": "9c02cfbd003e2acafe4fe0afaa16ab6486440d4ce648e45db6ad7125d1622928",
+          "structure.py": "ab6b36d34fb9dffc0e3f46d6a6936ef5f949bbc001abc25154f5b9d8c925733e",
+          "spec.py": "1071f46213cad79703fa802ee182df2844f04f6c245c01bbc4dd89b0c8a6d75b"
+        },
+        "gpu": "4",
+        "generation_mode": "fast",
+        "seed": 20261017,
+        "runtime": {
+          "python": "/data2/guest/rfd3_foundry1_20261018/env_validated/bin/python"
+        }
+      }
+    },
+    "generate": {
+      "status": "completed",
+      "attempts": [
+        {
+          "index": 1,
+          "status": "completed",
+          "reason": "Validate full tool chain with explicit Cartesian motif preservation after LigandMPNN torsion reconstruction and RFD3 clash gate; retain run01 unchanged",
+          "error": null,
+          "log": "steps/generate/0001/worker.log"
+        }
+      ],
+      "result": "steps/generate/0001/result.json",
+      "result_sha256": "5022ccc4c716a17ad637e7449df71a0c836a6b425e0f04c472373372b2732178",
+      "summary": {
+        "requested_backbones": 2,
+        "generated_backbones": 2,
+        "passing_backbones": 2
+      },
+      "provenance": {
+        "python": "/data2/guest/rfd3_foundry1_20261018/env_validated/bin/python",
+        "python_version": "3.12.15",
+        "versions": {
+          "rc-foundry": "1.0.0",
+          "torch": "2.11.0",
+          "atomworks": "3.0.1",
+          "biotite": "1.6.0",
+          "rdkit": "2026.9.1",
+          "numpy": "2.5.4"
+        },
+        "weights": {
+          "checkpoint": {
+            "path": "/home/guest/.foundry/checkpoints/rfd3_latest.ckpt",
+            "sha256": "9b3f85923e0d51e9453e15cdd2f8c666e7ce096a60577f57d11bbc54ae6d67c1",
+            "bytes": 2690316669
+          }
+        },
+        "sources": {
+          "worker_sha256": "45eac6fbe108fb43f50196cbe7ca6b8fafcaf1333dab4250d75c223bf3c6b88e",
+          "adapters.py": "9c02cfbd003e2acafe4fe0afaa16ab6486440d4ce648e45db6ad7125d1622928",
+          "structure.py": "ab6b36d34fb9dffc0e3f46d6a6936ef5f949bbc001abc25154f5b9d8c925733e",
+          "spec.py": "1071f46213cad79703fa802ee182df2844f04f6c245c01bbc4dd89b0c8a6d75b"
+        },
+        "gpu": "4",
+        "generation_mode": "fast",
+        "seed": 20261017,
+        "runtime": {
+          "python": "/data2/guest/rfd3_foundry1_20261018/env_validated/bin/python",
+          "executable": "/data2/guest/rfd3_foundry1_20261018/env_validated/bin/rfd3",
+          "checkpoint": "/home/guest/.foundry/checkpoints/rfd3_latest.ckpt",
+          "expected_foundry": "1.0.0"
+        }
+      }
+    },
+    "sequence": {
+      "status": "completed",
+      "attempts": [
+        {
+          "index": 1,
+          "status": "completed",
+          "reason": "Validate full tool chain with explicit Cartesian motif preservation after LigandMPNN torsion reconstruction and RFD3 clash gate; retain run01 unchanged",
+          "error": null,
+          "log": "steps/sequence/0001/worker.log"
+        }
+      ],
+      "result": "steps/sequence/0001/result.json",
+      "result_sha256": "1a57f42a57bf62546af174e33f8ad162f5d8257e8d8241b024f6950fccf99a1e",
+      "summary": {
+        "input_backbones": 2,
+        "requested_sequences": 2,
+        "passing_sequences": 2
+      },
+      "provenance": {
+        "python": "/home/guest/miniconda3/envs/mpnn/bin/python",
+        "python_version": "3.11.17",
+        "versions": {
+          "torch": "2.7.1+cu128",
+          "numpy": "1.23.5"
+        },
+        "weights": {
+          "checkpoint": {
+            "path": "/home/guest/software/LigandMPNN/model_params/ligandmpnn_v_32_010_25.pt",
+            "sha256": "161cd264061fda9680cbb940255522ae42f2966c552d045d87913d9452a80970",
+            "bytes": 10541943
+          },
+          "packer_checkpoint": {
+            "path": "/home/guest/software/LigandMPNN/model_params/ligandmpnn_sc_v_32_002_16.pt",
+            "sha256": "799a9de6c1c72bb0c7ceb37998391a6fd0e3e21cb42928ee31a28313a3b1b46a",
+            "bytes": 14359379
+          }
+        },
+        "sources": {
+          "worker_sha256": "45eac6fbe108fb43f50196cbe7ca6b8fafcaf1333dab4250d75c223bf3c6b88e",
+          "adapters.py": "9c02cfbd003e2acafe4fe0afaa16ab6486440d4ce648e45db6ad7125d1622928",
+          "structure.py": "ab6b36d34fb9dffc0e3f46d6a6936ef5f949bbc001abc25154f5b9d8c925733e",
+          "spec.py": "1071f46213cad79703fa802ee182df2844f04f6c245c01bbc4dd89b0c8a6d75b",
+          "upstream_commit": "26ec57ac976ade5379920dbd43c7f97a91cf82de"
+        },
+        "gpu": "4",
+        "generation_mode": "fast",
+        "seed": 20261017,
+        "runtime": {
+          "python": "/home/guest/miniconda3/envs/mpnn/bin/python",
+          "repo": "/home/guest/software/LigandMPNN",
+          "checkpoint": "/home/guest/software/LigandMPNN/model_params/ligandmpnn_v_32_010_25.pt",
+          "packer_checkpoint": "/home/guest/software/LigandMPNN/model_params/ligandmpnn_sc_v_32_002_16.pt"
+        }
+      }
+    },
+    "relax": {
+      "status": "completed",
+      "attempts": [
+        {
+          "index": 1,
+          "status": "completed",
+          "reason": "Validate full tool chain with explicit Cartesian motif preservation after LigandMPNN torsion reconstruction and RFD3 clash gate; retain run01 unchanged",
+          "error": null,
+          "log": "steps/relax/0001/worker.log"
+        }
+      ],
+      "result": "steps/relax/0001/result.json",
+      "result_sha256": "96ce84679331e3194725a82a58761802368cf0ccb471f99d5795d65b2b0f673f",
+      "summary": {
+        "input_sequences": 2,
+        "optimized": 2
+      },
+      "provenance": {
+        "python": "/home/guest/miniconda3/envs/pyrosetta/bin/python",
+        "python_version": "3.11.17",
+        "versions": {
+          "torch": "2.7.1+cu128",
+          "biotite": "1.6.0",
+          "rdkit": "2026.3.6",
+          "pyrosetta": "2026.29+releasequarterly.80a0635615",
+          "numpy": "1.26.4"
+        },
+        "weights": {},
+        "sources": {
+          "worker_sha256": "45eac6fbe108fb43f50196cbe7ca6b8fafcaf1333dab4250d75c223bf3c6b88e",
+          "adapters.py": "9c02cfbd003e2acafe4fe0afaa16ab6486440d4ce648e45db6ad7125d1622928",
+          "structure.py": "ab6b36d34fb9dffc0e3f46d6a6936ef5f949bbc001abc25154f5b9d8c925733e",
+          "spec.py": "1071f46213cad79703fa802ee182df2844f04f6c245c01bbc4dd89b0c8a6d75b"
+        },
+        "gpu": "4",
+        "generation_mode": "fast",
+        "seed": 20261017,
+        "runtime": {
+          "python": "/home/guest/miniconda3/envs/pyrosetta/bin/python"
+        }
+      }
+    },
+    "refold": {
+      "status": "completed",
+      "attempts": [
+        {
+          "index": 1,
+          "status": "failed",
+          "reason": "Validate full tool chain with explicit Cartesian motif preservation after LigandMPNN torsion reconstruction and RFD3 clash gate; retain run01 unchanged",
+          "error": "ValueError: worker exited with code 1; inspect steps/refold/0001/worker.log",
+          "log": "steps/refold/0001/worker.log"
+        },
+        {
+          "index": 2,
+          "status": "failed",
+          "reason": "Fix explicit SDF atom-map labels through RF3 hydrogen removal; preserve failed attempt and reuse completed predecessors",
+          "error": "ValueError: worker exited with code 1; inspect steps/refold/0002/worker.log",
+          "log": "steps/refold/0002/worker.log"
+        },
+        {
+          "index": 3,
+          "status": "completed",
+          "reason": "Use RF3 UNL sentinel for custom SDF to prevent CCD alias substitution; original mismatched output rejected and retained",
+          "error": null,
+          "log": "steps/refold/0003/worker.log"
+        }
+      ],
+      "result": "steps/refold/0003/result.json",
+      "result_sha256": "70aefa86e8f88d6c192c5f04b69b8a8e5feacfe0f554b10fb5411b03c2aeb486",
+      "summary": {
+        "predicted_sequences": 2,
+        "states": [
+          "holo"
+        ],
+        "prediction_input": "sequence and chemical components only; no design template coordinates"
+      },
+      "provenance": {
+        "python": "/home/guest/miniconda3/envs/rf3/bin/python",
+        "python_version": "3.12.15",
+        "versions": {
+          "rc-foundry": "0.2.0",
+          "torch": "2.14.1",
+          "atomworks": "2.2.1",
+          "biotite": "1.4.0",
+          "rdkit": "2026.3.6",
+          "numpy": "2.5.3"
+        },
+        "weights": {
+          "checkpoint": {
+            "path": "/data2/guest/enzyme_design/models/rf3/rf3_latest.ckpt",
+            "sha256": "364ef592fd8042a9cf4176d045015190f8322f961ccca38d891b20ca578d3bb0",
+            "bytes": 3038876446
+          }
+        },
+        "sources": {
+          "worker_sha256": "45eac6fbe108fb43f50196cbe7ca6b8fafcaf1333dab4250d75c223bf3c6b88e",
+          "adapters.py": "8f82beb72822a0f5f499c2c13be43aba018fc52853d36bc06555314b0658f742",
+          "structure.py": "ab6b36d34fb9dffc0e3f46d6a6936ef5f949bbc001abc25154f5b9d8c925733e",
+          "spec.py": "1071f46213cad79703fa802ee182df2844f04f6c245c01bbc4dd89b0c8a6d75b"
+        },
+        "gpu": "4",
+        "generation_mode": "fast",
+        "seed": 20261017,
+        "runtime": {
+          "python": "/home/guest/miniconda3/envs/rf3/bin/python",
+          "executable": "/home/guest/software/bin/rf3",
+          "checkpoint": "/data2/guest/enzyme_design/models/rf3/rf3_latest.ckpt"
+        }
+      }
+    },
+    "assess": {
+      "status": "completed",
+      "attempts": [
+        {
+          "index": 1,
+          "status": "failed",
+          "reason": "Use RF3 UNL sentinel for custom SDF to prevent CCD alias substitution; original mismatched output rejected and retained",
+          "error": "ValueError: worker exited with code 1; inspect steps/assess/0001/worker.log",
+          "log": "steps/assess/0001/worker.log"
+        },
+        {
+          "index": 2,
+          "status": "completed",
+          "reason": "Prepare PLACER custom chemistry with existing RDKit environment; keep PLACER environment unchanged and preserve failed attempt",
+          "error": null,
+          "log": "steps/assess/0002/worker.log"
+        }
+      ],
+      "result": "steps/assess/0002/result.json",
+      "result_sha256": "49801c46efdb63015c2e1ee7592e6b3b6875e225cfac6c3bb1d9decfa30f697d",
+      "summary": {
+        "assessed_sequences": 2,
+        "samples_per_state": 2,
+        "states": [
+          "holo"
+        ]
+      },
+      "provenance": {
+        "python": "/home/guest/miniconda3/envs/placer/bin/python",
+        "python_version": "3.11.17",
+        "versions": {
+          "torch": "2.7.1+cu128",
+          "numpy": "1.23.5"
+        },
+        "weights": {
+          "checkpoint": {
+            "path": "/home/guest/software/PLACER/weights/PLACER_model_1.pt",
+            "sha256": "544272798e29863ad1c185ceb12be6008f6ad2f7f5898700b748f8a7374b568a",
+            "bytes": 61131458
+          }
+        },
+        "sources": {
+          "worker_sha256": "45eac6fbe108fb43f50196cbe7ca6b8fafcaf1333dab4250d75c223bf3c6b88e",
+          "adapters.py": "d72d8b39b73016ab3a0dee097dac055ecb785e79083a94a8d2b6d4d05c3dc8c0",
+          "structure.py": "ab6b36d34fb9dffc0e3f46d6a6936ef5f949bbc001abc25154f5b9d8c925733e",
+          "spec.py": "1071f46213cad79703fa802ee182df2844f04f6c245c01bbc4dd89b0c8a6d75b"
+        },
+        "gpu": "4",
+        "generation_mode": "fast",
+        "seed": 20261017,
+        "runtime": {
+          "python": "/home/guest/miniconda3/envs/placer/bin/python",
+          "repo": "/home/guest/software/PLACER",
+          "checkpoint": "/home/guest/software/PLACER/weights/PLACER_model_1.pt"
+        }
+      }
+    },
+    "select": {
+      "status": "completed",
+      "attempts": [
+        {
+          "index": 1,
+          "status": "completed",
+          "reason": "Prepare PLACER custom chemistry with existing RDKit environment; keep PLACER environment unchanged and preserve failed attempt",
+          "error": null,
+          "log": "steps/select/0001/worker.log"
+        }
+      ],
+      "result": "steps/select/0001/result.json",
+      "result_sha256": "40f749f1dc9cc1fbe55ccfc56755f2a6b4f64b090c7e1136f185062159efd54e",
+      "summary": {
+        "status": "NO_CANDIDATES_PASSED",
+        "evaluated_sequences": 2,
+        "selected_sequences": 0,
+        "selected_scaffolds": 0,
+        "thresholds": {
+          "max_candidates": 2,
+          "max_sequence_identity": 0.8,
+          "max_backbone_rmsd": 2.0,
+          "min_plddt": 0.7,
+          "min_geometry_fraction": 0.5,
+          "max_per_scaffold": 1,
+          "min_structure_rmsd": 0.0
+        },
+        "delivery": "steps/select/0001/delivery_manifest.json",
+        "experimental_activity": "not measured"
+      },
+      "provenance": {
+        "python": "/usr/bin/python3",
+        "python_version": "3.12.3",
+        "versions": {
+          "torch": "2.12.0+cu130",
+          "numpy": "2.2.6"
+        },
+        "weights": {},
+        "sources": {
+          "worker_sha256": "45eac6fbe108fb43f50196cbe7ca6b8fafcaf1333dab4250d75c223bf3c6b88e",
+          "adapters.py": "d72d8b39b73016ab3a0dee097dac055ecb785e79083a94a8d2b6d4d05c3dc8c0",
+          "structure.py": "ab6b36d34fb9dffc0e3f46d6a6936ef5f949bbc001abc25154f5b9d8c925733e",
+          "spec.py": "1071f46213cad79703fa802ee182df2844f04f6c245c01bbc4dd89b0c8a6d75b"
+        },
+        "gpu": "4",
+        "generation_mode": "fast",
+        "seed": 20261017,
+        "runtime": {
+          "python": "/usr/bin/python3"
+        }
+      }
+    }
+  },
+  "evaluations": [
+    {
+      "id": "backbone_00001_seq0001",
+      "sequence": "LPTISREALRRAGALSLDTAVVIDVPRLGVRHLVTSTVGKGVVEVTVHLRPGTRHASVHARAVADLFKDAGLTKADTRYGDEAQEADIEEAVKICAEKGIEATYARDPALAPGVTVTVLTGNGLTREQFEQVIAALRRDDPDLRYEFVENGEAGWDRLVG",
+      "relaxed_structure": "steps/relax/0001/backbone_00001_seq0001/relaxed.pdb",
+      "rosetta": {
+        "initial_REU": 879.9981667580844,
+        "final_REU": -435.3397956663661,
+        "residue_types": {
+          "A1": "HIS_D",
+          "B1": "HIS_D",
+          "C1": "HIS"
+        }
+      },
+      "predictions": {
+        "holo": {
+          "structure": "steps/refold/0003/backbone_00001_seq0001/holo/predicted.pdb",
+          "mapping": {
+            "A1": "A55",
+            "B1": "A32",
+            "C1": "A59",
+            "L1": "B0",
+            "Z1": "C1"
+          },
+          "geometry": {
+            "state": "holo",
+            "passed": false,
+            "constraints": [
+              {
+                "name": "A1_Zn",
+                "type": "distance",
+                "value": 1.8430404795019144,
+                "min": 1.6583019733428954,
+                "max": 2.3583019733428956,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "B1_Zn",
+                "type": "distance",
+                "value": 1.7996496810166562,
+                "min": 1.6576642036437987,
+                "max": 2.357664203643799,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "C1_Zn",
+                "type": "distance",
+                "value": 2.6576795770500348,
+                "min": 1.6650988101959228,
+                "max": 2.365098810195923,
+                "error": null,
+                "passed": false
+              },
+              {
+                "name": "L1_Zn",
+                "type": "distance",
+                "value": 4.014986048099202,
+                "min": 1.5915935277938842,
+                "max": 2.2915935277938844,
+                "error": null,
+                "passed": false
+              }
+            ],
+            "missing_geometry": false
+          },
+          "backbone_rmsd": 0.7985059430645256,
+          "plddt": 0.8048,
+          "confidences": {
+            "chain_ptm": [
+              0.81,
+              0.72,
+              0.76
+            ],
+            "chain_pair_pae_min": [
+              [
+                null,
+                1.64,
+                2.64
+              ],
+              [
+                null,
+                null,
+                6.95
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ],
+            "chain_pair_pde_min": [
+              [
+                null,
+                0.56,
+                0.74
+              ],
+              [
+                null,
+                null,
+                0.97
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ],
+            "chain_pair_pae": [
+              [
+                null,
+                7.82,
+                5.75
+              ],
+              [
+                null,
+                null,
+                8.96
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ],
+            "chain_pair_pde": [
+              [
+                null,
+                1.11,
+                1.08
+              ],
+              [
+                null,
+                null,
+                1.34
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ],
+            "overall_plddt": 0.8048,
+            "overall_pde": 0.7555,
+            "overall_pae": 4.2868,
+            "ptm": 0.8975524306297302,
+            "iptm": 0.8594247698783875,
+            "has_clash": false,
+            "ranking_score": 0.8671
+          },
+          "source_structure": "steps/refold/0003/backbone_00001_seq0001/holo/raw/backbone_00001_seq0001_holo/backbone_00001_seq0001_holo_model.cif",
+          "interpretation": "Stable reactant substrate and Zn; not an explicit TS bond graph."
+        }
+      },
+      "ensembles": {
+        "holo": {
+          "samples": [
+            {
+              "structure": "steps/assess/0002/backbone_00001_seq0001/holo/sample_0000.pdb",
+              "scores": {
+                "prmsd": 1.6285063028335571,
+                "plddt": 0.9735293984413147,
+                "plddt_pde": 0.8839863538742065
+              },
+              "geometry": {
+                "state": "holo",
+                "passed": false,
+                "constraints": [
+                  {
+                    "name": "A1_Zn",
+                    "type": "distance",
+                    "value": 1.9573132094787489,
+                    "min": 1.6583019733428954,
+                    "max": 2.3583019733428956,
+                    "error": null,
+                    "passed": true
+                  },
+                  {
+                    "name": "B1_Zn",
+                    "type": "distance",
+                    "value": 1.8863056486158334,
+                    "min": 1.6576642036437987,
+                    "max": 2.357664203643799,
+                    "error": null,
+                    "passed": true
+                  },
+                  {
+                    "name": "C1_Zn",
+                    "type": "distance",
+                    "value": 3.6888408748548644,
+                    "min": 1.6650988101959228,
+                    "max": 2.365098810195923,
+                    "error": null,
+                    "passed": false
+                  },
+                  {
+                    "name": "L1_Zn",
+                    "type": "distance",
+                    "value": 4.667674474510835,
+                    "min": 1.5915935277938842,
+                    "max": 2.2915935277938844,
+                    "error": null,
+                    "passed": false
+                  }
+                ],
+                "missing_geometry": false
+              },
+              "identity_errors": [],
+              "passed": false
+            },
+            {
+              "structure": "steps/assess/0002/backbone_00001_seq0001/holo/sample_0001.pdb",
+              "scores": {
+                "prmsd": 1.7449842691421509,
+                "plddt": 0.9641175866127014,
+                "plddt_pde": 0.904911458492279
+              },
+              "geometry": {
+                "state": "holo",
+                "passed": false,
+                "constraints": [
+                  {
+                    "name": "A1_Zn",
+                    "type": "distance",
+                    "value": 1.882021785208662,
+                    "min": 1.6583019733428954,
+                    "max": 2.3583019733428956,
+                    "error": null,
+                    "passed": true
+                  },
+                  {
+                    "name": "B1_Zn",
+                    "type": "distance",
+                    "value": 1.8264284820381012,
+                    "min": 1.6576642036437987,
+                    "max": 2.357664203643799,
+                    "error": null,
+                    "passed": true
+                  },
+                  {
+                    "name": "C1_Zn",
+                    "type": "distance",
+                    "value": 3.8845859496219153,
+                    "min": 1.6650988101959228,
+                    "max": 2.365098810195923,
+                    "error": null,
+                    "passed": false
+                  },
+                  {
+                    "name": "L1_Zn",
+                    "type": "distance",
+                    "value": 4.790188096515627,
+                    "min": 1.5915935277938842,
+                    "max": 2.2915935277938844,
+                    "error": null,
+                    "passed": false
+                  }
+                ],
+                "missing_geometry": false
+              },
+              "identity_errors": [],
+              "passed": false
+            }
+          ],
+          "geometry_fraction": 0.0,
+          "scope": "Local predicted conformational geometry, not a free energy or rate estimate."
+        }
+      }
+    },
+    {
+      "id": "backbone_00002_seq0001",
+      "sequence": "GAAKVVIDWTASNEAAAARGREIIEDYELSGRGTAAHAAGHLAWAYVESGARLSAAEFDALARQVAADLGLAVDDAALADLLALLDGPLTVEQEGNKAVVTLTLRAAEGTLTITMTSVFEPGATTADTTVRLSFPVPADLAAAYTAAHGAAVAAFVAALA",
+      "relaxed_structure": "steps/relax/0001/backbone_00002_seq0001/relaxed.pdb",
+      "rosetta": {
+        "initial_REU": 294.6108219977886,
+        "final_REU": -422.6935405687039,
+        "residue_types": {
+          "A1": "HIS_D",
+          "B1": "HIS_D",
+          "C1": "HIS"
+        }
+      },
+      "predictions": {
+        "holo": {
+          "structure": "steps/refold/0003/backbone_00002_seq0001/holo/predicted.pdb",
+          "mapping": {
+            "A1": "A41",
+            "B1": "A148",
+            "C1": "A37",
+            "L1": "B0",
+            "Z1": "C1"
+          },
+          "geometry": {
+            "state": "holo",
+            "passed": false,
+            "constraints": [
+              {
+                "name": "A1_Zn",
+                "type": "distance",
+                "value": 1.8976516883835026,
+                "min": 1.6583019733428954,
+                "max": 2.3583019733428956,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "B1_Zn",
+                "type": "distance",
+                "value": 1.9922839600978994,
+                "min": 1.6576642036437987,
+                "max": 2.357664203643799,
+                "error": null,
+                "passed": true
+              },
+              {
+                "name": "C1_Zn",
+                "type": "distance",
+                "value": 4.021727777462761,
+                "min": 1.6650988101959228,
+                "max": 2.365098810195923,
+                "error": null,
+                "passed": false
+              },
+              {
+                "name": "L1_Zn",
+                "type": "distance",
+                "value": 5.393000343596062,
+                "min": 1.5915935277938842,
+                "max": 2.2915935277938844,
+                "error": null,
+                "passed": false
+              }
+            ],
+            "missing_geometry": false
+          },
+          "backbone_rmsd": 2.6956219643718007,
+          "plddt": 0.8349,
+          "confidences": {
+            "chain_ptm": [
+              0.84,
+              0.76,
+              0.81
+            ],
+            "chain_pair_pae_min": [
+              [
+                null,
+                1.47,
+                2.91
+              ],
+              [
+                null,
+                null,
+                7.12
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ],
+            "chain_pair_pde_min": [
+              [
+                null,
+                0.57,
+                0.79
+              ],
+              [
+                null,
+                null,
+                1.14
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ],
+            "chain_pair_pae": [
+              [
+                null,
+                7.69,
+                5.84
+              ],
+              [
+                null,
+                null,
+                8.97
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ],
+            "chain_pair_pde": [
+              [
+                null,
+                1.1,
+                1.19
+              ],
+              [
+                null,
+                null,
+                1.54
+              ],
+              [
+                null,
+                null,
+                null
+              ]
+            ],
+            "overall_plddt": 0.8349,
+            "overall_pde": 0.7717,
+            "overall_pae": 4.346,
+            "ptm": 0.8800496459007263,
+            "iptm": 0.8705747723579407,
+            "has_clash": false,
+            "ranking_score": 0.8725
+          },
+          "source_structure": "steps/refold/0003/backbone_00002_seq0001/holo/raw/backbone_00002_seq0001_holo/backbone_00002_seq0001_holo_model.cif",
+          "interpretation": "Stable reactant substrate and Zn; not an explicit TS bond graph."
+        }
+      },
+      "ensembles": {
+        "holo": {
+          "samples": [
+            {
+              "structure": "steps/assess/0002/backbone_00002_seq0001/holo/sample_0000.pdb",
+              "scores": {
+                "prmsd": 3.233691453933716,
+                "plddt": 0.7947059273719788,
+                "plddt_pde": 0.7631326913833618
+              },
+              "geometry": {
+                "state": "holo",
+                "passed": false,
+                "constraints": [
+                  {
+                    "name": "A1_Zn",
+                    "type": "distance",
+                    "value": 1.914905219586599,
+                    "min": 1.6583019733428954,
+                    "max": 2.3583019733428956,
+                    "error": null,
+                    "passed": true
+                  },
+                  {
+                    "name": "B1_Zn",
+                    "type": "distance",
+                    "value": 1.9193855787725407,
+                    "min": 1.6576642036437987,
+                    "max": 2.357664203643799,
+                    "error": null,
+                    "passed": true
+                  },
+                  {
+                    "name": "C1_Zn",
+                    "type": "distance",
+                    "value": 3.979581636302992,
+                    "min": 1.6650988101959228,
+                    "max": 2.365098810195923,
+                    "error": null,
+                    "passed": false
+                  },
+                  {
+                    "name": "L1_Zn",
+                    "type": "distance",
+                    "value": 4.6238674288954265,
+                    "min": 1.5915935277938842,
+                    "max": 2.2915935277938844,
+                    "error": null,
+                    "passed": false
+                  }
+                ],
+                "missing_geometry": false
+              },
+              "identity_errors": [],
+              "passed": false
+            },
+            {
+              "structure": "steps/assess/0002/backbone_00002_seq0001/holo/sample_0001.pdb",
+              "scores": {
+                "prmsd": 3.756413698196411,
+                "plddt": 0.7394117712974548,
+                "plddt_pde": 0.6383265256881714
+              },
+              "geometry": {
+                "state": "holo",
+                "passed": false,
+                "constraints": [
+                  {
+                    "name": "A1_Zn",
+                    "type": "distance",
+                    "value": 1.9188043151921457,
+                    "min": 1.6583019733428954,
+                    "max": 2.3583019733428956,
+                    "error": null,
+                    "passed": true
+                  },
+                  {
+                    "name": "B1_Zn",
+                    "type": "distance",
+                    "value": 1.9432681235485747,
+                    "min": 1.6576642036437987,
+                    "max": 2.357664203643799,
+                    "error": null,
+                    "passed": true
+                  },
+                  {
+                    "name": "C1_Zn",
+                    "type": "distance",
+                    "value": 3.8685564491163884,
+                    "min": 1.6650988101959228,
+                    "max": 2.365098810195923,
+                    "error": null,
+                    "passed": false
+                  },
+                  {
+                    "name": "L1_Zn",
+                    "type": "distance",
+                    "value": 2.41297036865354,
+                    "min": 1.5915935277938842,
+                    "max": 2.2915935277938844,
+                    "error": null,
+                    "passed": false
+                  }
+                ],
+                "missing_geometry": false
+              },
+              "identity_errors": [],
+              "passed": false
+            }
+          ],
+          "geometry_fraction": 0.0,
+          "scope": "Local predicted conformational geometry, not a free energy or rate estimate."
+        }
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "stage": "select",
+      "id": "backbone_00002_seq0001",
+      "reason": "holo: backbone recovery failed; holo: predicted catalytic geometry failed; holo: ensemble geometry fraction below threshold"
+    },
+    {
+      "stage": "select",
+      "id": "backbone_00001_seq0001",
+      "reason": "holo: predicted catalytic geometry failed; holo: ensemble geometry fraction below threshold"
+    }
+  ]
+}

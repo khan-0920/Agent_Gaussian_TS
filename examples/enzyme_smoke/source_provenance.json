@@ -1,0 +1,7 @@
+{
+  "motif_source": "/data2/guest/enzyme_design/platform_pilot_20261017/original/inputs/motif.cif",
+  "params_source": "/data2/guest/enzyme_design/multiroute_20261018/rosetta_preflight/substrate.params",
+  "params_atom_map_method": "Chirality-aware RDKit graph isomorphism to the prior named SDF, composed with its explicit Rosetta atom map.",
+  "previous_named_sdf": "/data2/guest/enzyme_design/multiroute_20261018/panel/p01_good_original_full_sidechain/substrate.sdf",
+  "hypothesis_not_validated": true
+}
