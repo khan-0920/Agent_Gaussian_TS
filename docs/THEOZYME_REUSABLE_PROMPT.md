@@ -2,6 +2,10 @@
 
 复制以下内容到新任务并填写输入栏。先读本项目 AGENTS.md、docs/CODEX_GUIDE.md 和 tools/schema。案例来源见 [Nazarov 过程记录](THEOZYME_NAZAROV_LESSONS.md)。本文件是研究指导，不意味着程序已经实现通用机理发现。不要自动恢复旧作业或沿用旧凭据、电子态及预算。
 
+## 酶设计知识入口
+
+涉及从反应构建催化位点或向蛋白设计交接时，先读[酶设计上下文](enzyme_design_context/README.md)与[项目衔接说明](enzyme_design_context/AGENT_INTEGRATION.md)，按当前问题选择路线并记录研究来源。已有活性亲本、序列家族与从头设计采用不同入口；不要把历史 V1 的完整残基、无水或预算设置当作本次默认条件。以下研究指导中的高级 Gaussian 功能仍以当前工具 schema 为准；本工具包不提供 NoEigenTest 或原生 checkpoint 续算入口。
+
 ## 任务输入
 
 请依托 Agent_Gaussian_TS 与 Gaussian 为以下反应构建、计算并验证 theozyme：

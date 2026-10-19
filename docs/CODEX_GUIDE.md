@@ -2,6 +2,12 @@
 
 本工具包把 Codex/GPT 放在研究决策层。它提供三类辅助：把自然语言问题整理成显式研究条件；把历史计算压缩成结构化上下文；执行经过验证的几何/Gaussian 动作并保存证据。
 
+## 酶设计任务的研究上下文
+
+涉及酶／蛋白设计或 theozyme 时，先读[上下文入口](enzyme_design_context/README.md)与[项目衔接规则](enzyme_design_context/AGENT_INTEGRATION.md)，再按需要读取指南、路线比较及研究来源。先确定目标是新反应、亲本底物适配、稳定性还是序列家族设计，再决定 Gaussian 的作用。
+
+将采用的路线、来源 ID、模型假设和待核查项写入现有 problem 字段；CLI 的 context 只返回本次运行状态，不自动加载文献。历史 V1 的组分选择、计算设置及服务器状态不覆盖本次用户条件。论文阈值和历史案例标签不能替代当前独立验证器。
+
 ## 定义问题
 
 先写一个 `problem.json`，包含 question、fixed_conditions、hypotheses、uncertainties 和可选 notes，示例见 `examples/problem.json`。问题应明确目标基元步骤、哪些条件固定、哪些机理是待检验假设及什么证据才算成功。

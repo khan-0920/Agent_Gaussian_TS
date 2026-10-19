@@ -1,0 +1,98 @@
+{
+  "status": "CONTEXT_COLLECTION_DELIVERED",
+  "language": "zh-CN",
+  "purpose": "为后续独立开展酶设计保存可追溯的路线、证据和判断边界",
+  "priority": "RFD相关研究优先，其他酶设计路线保留",
+  "read_order": [
+    {
+      "file": "enzyme_design_guide_zh.md",
+      "use": "中文路线选择、RFD交接条件、实验判据与失败诊断"
+    },
+    {
+      "file": "source_catalog_zh.md",
+      "use": "17篇研究的可读来源表及核查范围"
+    },
+    {
+      "file": "source_register.json",
+      "use": "查看每篇研究来源、已核查范围、结果及未决问题"
+    },
+    {
+      "file": "route_selection.json",
+      "use": "比较已有亲本、天然家族与从头设计的入口条件；规则是综合判断"
+    },
+    {
+      "file": "rfd_serine_workflow.json",
+      "use": "RFD丝氨酸水解酶的多状态筛选与周转失败诊断"
+    },
+    {
+      "file": "rfd_focus.json",
+      "use": "RFD2/RFD3后续论文与官方教程核查队列"
+    },
+    {
+      "file": "rfd_code_provenance.json",
+      "use": "固定代码版本、分析入口、拟合单位和误差定义"
+    },
+    {
+      "file": "rfd3_workflow.json",
+      "use": "RFD3催化模型、骨架/序列漏斗与四状态筛选；含原文歧义和移植边界"
+    },
+    {
+      "file": "rfd3_supplement_audit.json",
+      "use": "RFD3补充实验方法与周转证据核查范围"
+    }
+  ],
+  "source_accounting": {
+    "studies": 17,
+    "partial_main_text": 8,
+    "abstract_metadata": 8,
+    "abstract_and_captions": 1,
+    "indexed_excerpts": 0,
+    "full_supplement_audits": 0,
+    "independent_reproductions": 0
+  },
+  "practical_lessons": [
+    {
+      "lesson": "先确定目标是新反应、底物改造、稳定性还是亲本优化，再选择生成模型",
+      "basis": "跨路线归纳，非单篇论文结论"
+    },
+    {
+      "lesson": "RFD生成几何匹配骨架不等于机理成立；独立检查催化几何假设",
+      "sources": [
+        "E005",
+        "E006",
+        "E015"
+      ]
+    },
+    {
+      "lesson": "探针标记、单次反应、持续周转必须分级记录",
+      "sources": [
+        "E005"
+      ]
+    },
+    {
+      "lesson": "优先统计测试序列、可溶蛋白、独立骨架和不同活性阈值，禁止混用分母",
+      "sources": [
+        "E003",
+        "E005",
+        "E006"
+      ]
+    },
+    {
+      "lesson": "预测构象集合可用于筛选，不能直接换算为活化自由能",
+      "basis": "方法解释边界"
+    },
+    {
+      "lesson": "局部骨架改建可用于已知活性亲本；其成功率与从头设计分开",
+      "sources": [
+        "E005"
+      ]
+    }
+  ],
+  "completion_boundary": "已交付路线与来源知识储备；未宣称完整文献审计、独立计算复现或自主实验能力。",
+  "future_verification_queue": [
+    "继续核查RFD3周转计量和原始数据；补充材料已获取并部分读取",
+    "获取RFD2/SI和当前终版，消除ZETA4数值差异",
+    "从固定仓库原始数据复核一个非危险模型酯水解实例",
+    "深化非RFD代表研究；中文实用指南已有初版"
+  ]
+}

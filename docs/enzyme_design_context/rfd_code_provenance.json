@@ -1,0 +1,81 @@
+{
+  "status": "DOCUMENTATION_AUDIT_NOT_EXECUTION",
+  "repository": "https://github.com/baker-laboratory/Metallohydrolase_Enzyme_Design",
+  "commit": "1072dd09f824d3dc91e92d9fadb516e4151774d2",
+  "readme_sha256": "1851f2438c433960d633dd2942786c4c012ebdd350421346d6477c8252134e6d",
+  "entries": {
+    "published_RFD2_pipeline": "Design_Pipelines/Metalloesterase_RFdiffusion2/",
+    "experimental_data": "Manuscript_Data/Metallohydrolase_Nature_2026/",
+    "analysis_environment": "Environment/analysis.yml",
+    "analysis_entry": "Manuscript_Data/Metallohydrolase_Nature_2026/wetlab_data_analysis.py",
+    "RFD3_tutorial": "RFdiffusion3_Tutorial/"
+  },
+  "documented_not_tested": [
+    "Analysis-only environment does not require GPU or PyRosetta",
+    "Design environment requires GPU and appropriate PyRosetta license",
+    "RFD3 tutorial separate from published RFD2 campaign"
+  ],
+  "bibliographic_note": "README reports online 2025-12-03, issue year2026; record separately instead of treating as different studies",
+  "new_leads": [
+    "Repository lists additional RFD3 Science2026 manuscript datasets; publication identity and primary experimental evidence not yet verified"
+  ],
+  "next_steps": [
+    "Inspect pinned analysis code and input files before reproducing plots",
+    "Check submodule commit and checkpoints independently",
+    "Reconcile new manuscript leads with E014 before adding studies"
+  ],
+  "limits": [
+    "README statement that workflow runs is not a verified execution result",
+    "No new experimental study counted from directory names alone"
+  ],
+  "analysis_script_audit": {
+    "path": "papers/E006_analysis.py",
+    "sha256": "6e0e6782330b2251bc592d9fcc76b31a80bb59422c45bf3730fbd70e3557d5e2",
+    "review": "Selected calibration, ZETA4 fitting configuration and turnover subtraction code inspected; not executed",
+    "findings": [
+      {
+        "locator": "lines 460\u2013490",
+        "fact": "Session-specific fluorescence calibration slopes, not one universal slope; triplicate dilution standards described"
+      },
+      {
+        "locator": "lines 1478\u20131522",
+        "fact": "ZETA4 uses 1.1\u201372 micromolar substrate range; 144 micromolar wells retained in raw data but excluded from fit; 0.5 micromolar enzyme; configuration time bounds 0\u20131200",
+        "pending": "Check helper function time units, SI rationale and raw data before interpreting range effects"
+      },
+      {
+        "locator": "lines 2187\u20132202",
+        "fact": "Turnover code subtracts matched background replicates before averaging, then calculates sample SD"
+      }
+    ],
+    "dependency_to_audit": "Scripts/experimental_data_processing_functions.py",
+    "important_limit": "Imported mm_kinetics implementation, raw measurements and published-value reproduction not yet verified"
+  },
+  "kinetics_helper_audit": {
+    "file": "papers/E006_processing.py",
+    "sha256": "11b5f592cd10a00bd4b848fa32e65c7f4a54102bf8333d23af60265f7479595f",
+    "scope": "Static inspection of parse_kinetics, mm_kinetics and parse_excels; no data reproduction",
+    "units": {
+      "kinetics_time": "seconds",
+      "progress_plot_time": "parse_excels converts seconds to minutes",
+      "product_concentration": "fluorescence times calibration slope times 1e6 gives micromolar",
+      "enzyme_concentration": "micromolar",
+      "normalized_velocity": "linear slope / enzyme concentration yields per second",
+      "Km": "micromolar",
+      "efficiency": "kcat/Km multiplied by 1e6 gives M^-1 s^-1"
+    },
+    "fit": "Each replicate slope enters an unweighted curve_fit; displayed mean rates use SEM",
+    "background": "For each substrate concentration all enzyme replicates use the corresponding background well; differs from paired-replicate turnover analysis",
+    "uncertainty": "Parameter errors from sqrt diagonal fit covariance; efficiency propagation uses relative variances without covariance term",
+    "implications_inferred": [
+      "Do not call every error bar SD: plot SEM, fit uncertainty and between-experiment SD are different",
+      "Shared blank induces correlations not represented by independent replicate treatment",
+      "Ratio uncertainty should consider parameter covariance for rigorous reanalysis; this observation alone does not invalidate reported results"
+    ],
+    "ZETA4_time_window": "0\u20131200 seconds (0\u201320 min) confirmed from parse_kinetics",
+    "next": [
+      "Retrieve raw standard and ZETA4 files",
+      "Reproduce fitting and compare alternate concentration range",
+      "Reconcile with SI and current article"
+    ]
+  }
+}

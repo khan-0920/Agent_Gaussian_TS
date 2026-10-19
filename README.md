@@ -24,6 +24,12 @@ python3 -m gaussian_ts apply --run-dir runs/reaction-001 \
 
 `define` 检查问题定义是否齐全；`context` 提供映射、结构、反馈、历史依据、预算和验证结果；`apply` 执行一个带依据的动作。Codex 根据新的 context 再选择下一步，无需固定流程。
 
+## 蛋白／酶设计上下文
+
+已将此前多工作流研究整合到 [酶设计上下文入口](docs/enzyme_design_context/README.md)：包括 17 篇研究、13 类路线、RFD 专项流程、来源核查记录及历史 Gaussian → RFD3 → LigandMPNN → Rosetta → 结构回预测 → PLACER 方案。[项目衔接说明](docs/enzyme_design_context/AGENT_INTEGRATION.md)说明选路、问题定义、TS 证据与下游交接的关系。
+
+这些资料由 Codex 在相关任务中按需读取；运行状态 `context` 和可选 HTTPPolicy 不会自动注入整本文献库。文献快照、项目特定条件与当前已实现能力分别标注；本次整合不代表已经部署蛋白设计执行流水线。
+
 ## 已有能力
 
 | 部分 | 实现 |

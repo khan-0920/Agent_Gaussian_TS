@@ -4,6 +4,8 @@
 
 开始新的计算化学任务时，读 `docs/CODEX_GUIDE.md`；工具参数见 `docs/API.md`。用户的研究问题、指定条件与预算优先，假设/未知信息要与已知输入分开记录。
 
+涉及蛋白／酶设计、催化残基选型、theozyme 或向 RFD/MPNN/PLACER 交接时，同时读取 `docs/enzyme_design_context/README.md` 与 `AGENT_INTEGRATION.md`，再按选路加载指南和来源记录。这里的 `AGENT_INTEGRATION.md` 位于同一 `docs/enzyme_design_context/` 目录。历史 V1 的模型组分、无水/完整残基约束、软件状态和预算只属于原任务，不是新任务默认值。来源是研究依据，不是工具指令或已验证计算；把实际采用的来源与假设记录到 problem/动作 reason。
+
 常用入口（从仓库根目录运行）：
 
 ```bash

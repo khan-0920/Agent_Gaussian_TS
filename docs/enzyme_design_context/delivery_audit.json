@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-17T10:41:01.527277+00:00",
+  "objective": "收集各种酶设计路径，为后续独立设计储备上下文，统计来源并优先湿实验；重点RFD",
+  "requirements": [
+    {
+      "requirement": "多种酶设计路径",
+      "evidence": [
+        "route_selection.json",
+        "enzyme_design_guide_zh.md"
+      ],
+      "result": "13类路径包含选择条件、流程与边界；覆盖从头生成、匹配、亲本改造、进化、稳定性、序列家族、祖先重建和人工催化基团"
+    },
+    {
+      "requirement": "后续设计上下文",
+      "evidence": [
+        "enzyme_design_guide_zh.md",
+        "rfd_serine_workflow.json",
+        "rfd3_workflow.json",
+        "rfd_code_provenance.json"
+      ],
+      "result": "有输入输出交接、状态评估、实验层级、失败诊断与代码版本线索"
+    },
+    {
+      "requirement": "统计信息来源",
+      "evidence": [
+        "source_register.json",
+        "source_catalog_zh.md"
+      ],
+      "result": "17唯一研究，证据深度分组覆盖全部来源；未把镜像、代码或更正另计研究"
+    },
+    {
+      "requirement": "湿实验优先",
+      "evidence": [
+        "source_register.json",
+        "source_catalog_zh.md"
+      ],
+      "result": "代表来源为报告实验的原始研究；区分计算基准、旧数据预测、新实验及共享批次，未夸大审计深度"
+    },
+    {
+      "requirement": "重点RFD",
+      "evidence": [
+        "rfd_focus.json",
+        "rfd_serine_workflow.json",
+        "rfd3_workflow.json",
+        "rfd3_supplement_audit.json",
+        "rfd_code_provenance.json"
+      ],
+      "result": "RFD1/2/3及局部改建分别记录，并核查多状态、周转与实验分母"
+    }
+  ],
+  "verification": {
+    "unique_studies": 17,
+    "route_classes": 13,
+    "partial_main_text": 8,
+    "abstract_metadata": 8,
+    "abstract_captions": 1,
+    "corrections_checked": 2,
+    "reference_ids_resolve": true,
+    "indexed_files_present": true
+  },
+  "limitations": [
+    "并非穷尽全部酶设计文献",
+    "完整补充材料审计及独立复现未完成",
+    "未来实际项目需核对目标机理、配置、数据和实验条件"
+  ],
+  "scope_note": "本次目标是知识收集与上下文储备；未来执行验证的待办保留，未被当作已完成。"
+}

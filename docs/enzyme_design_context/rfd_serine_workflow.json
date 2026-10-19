@@ -1,0 +1,46 @@
+{
+  "status": "PROVISIONAL_EVIDENCE_BASED_WORKFLOW",
+  "source_ids": [
+    "E005"
+  ],
+  "source_locator": "first-release journal PDF pages2–5",
+  "reported_pipeline": [
+    "QM几何及天然酶几何分析构造催化motif",
+    "显式枚举催化残基骨架构象，RFdiffusion生成匹配骨架",
+    "LigandMPNN与FastRelax交替三轮",
+    "AF2检查催化残基Cα位置；论文阈值1Å，非通用成功保证",
+    "PLACER按反应状态生成局部构象集合，评估关键氢键形成频率",
+    "分层实验：探针反应、单次酰化、多次周转、动力学、突变与结构"
+  ],
+  "input_contract_inferred": [
+    "底物/产物及中间体化学结构与原子对应",
+    "催化残基及主链贡献的几何定义",
+    "各状态的共价连接和质子化假设",
+    "筛选读数能区分一次反应与持续周转"
+  ],
+  "output_contract_inferred": [
+    "每个设计的骨架、序列和残基映射",
+    "每个状态的构象与几何通过比例",
+    "分批次tested/expression/probe/acylation/turnover计数",
+    "背景、催化位点突变及失活评估"
+  ],
+  "decision_rules_inferred": [
+    {
+      "observation": "探针阳性但仅一个酶当量产物",
+      "next": "检查共价中间体积累与脱酰化状态；不能仅提高表达筛选分数"
+    },
+    {
+      "observation": "全局结构吻合但活性弱",
+      "next": "检查侧链rotamer、第二配位层、各反应状态氢键及口袋可达性"
+    },
+    {
+      "observation": "已找到活性亲本",
+      "next": "可考虑序列重设计或局部RFD骨架改建；统计为亲本优化而非独立从头命中"
+    }
+  ],
+  "limits": [
+    "上述规则是基于论文的工作判断，不是经过独立复现的自动化程序",
+    "不得将PLACER构象比例当作定量自由能或速率预测",
+    "尚需SI核实配置、反应条件和全部实验定义"
+  ]
+}

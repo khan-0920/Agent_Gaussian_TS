@@ -1,0 +1,88 @@
+{
+  "status": "SOURCE_BASED_PROVISIONAL_WORKFLOW",
+  "source_id": "E014",
+  "version": "2025-11-19 preprint v2",
+  "evidence": "papers/E014_supplements.zip / media-1.pdf PDF pages35–38",
+  "purpose": "复用设计逻辑；不是已复现的可直接运行脚本",
+  "reported_pipeline": [
+    {
+      "stage": "催化模型",
+      "inputs": "Ulp1 1EUV; Cys-His-Asp与Gln/主链氧阴离子稳定接触; 4MU-phenyl acetate第一四面体中间体TI1",
+      "conditioning": "固定指定功能原子与亲核残基两侧主链；unindexed motif。4MU离去基团暴露，phenyl-acetate酰基部分埋藏的原子级RASA约束。"
+    },
+    {
+      "stage": "骨架",
+      "counts": {
+        "generated": 130000,
+        "after_topology_and_RASA_approximately": 26000
+      },
+      "gate": "亲核Cys位于螺旋N端的局部拓扑；底物原子暴露度"
+    },
+    {
+      "stage": "序列/结构迭代",
+      "engine": "LigandMPNN与AF3 TI1预测迭代；检查四面体中心手性",
+      "rounds": [
+        {
+          "round": 1,
+          "reported_samples": 10,
+          "motif_RMSD_A_lt": 1.25,
+          "pTM_gt": 0.7,
+          "passing_sequences": 5492,
+          "passing_scaffolds": 2586
+        },
+        {
+          "round": 2,
+          "reported_samples": 10,
+          "motif_RMSD_A_lt": 1.0,
+          "pTM_gt": 0.8,
+          "additional_gate": "催化距离",
+          "passing_sequences": 406,
+          "passing_scaffolds": 150
+        },
+        {
+          "round": 3,
+          "reported_samples": 100,
+          "additional_gate": "更严催化距离；催化残基pLDDT>80",
+          "pooled_across_rounds_after_round3_filter_sequences": 2548,
+          "pooled_scaffolds": 50
+        }
+      ]
+    },
+    {
+      "stage": "多状态整合",
+      "states": [
+        "ES/holo",
+        "AEI",
+        "TI1",
+        "TI2"
+      ],
+      "gate": "ES配体位置、界面PAE及接触；其余状态几何/置信度复合分数",
+      "scaffolds_after_ES": 27,
+      "selection": "家族内选2–10条，通常约3条，共96条；每条再重设计选1条，得到另96条；2条合成QC失败，190条测试"
+    },
+    {
+      "stage": "实验",
+      "reference": "rfd3_supplement_audit.json",
+      "authors_reported_multiturnover": 35,
+      "purified_best": "C6",
+      "technical_replicates": 3
+    }
+  ],
+  "transfer_rules_inferred": [
+    "先建立具体反应状态和原子映射，再调用生成模型；RFD不会替代反应机理验证。",
+    "四状态模型适用于该共价水解机理，不应机械移植到金属催化或其他反应。",
+    "手性、离去基团出口和水进入路径应与局部催化几何一起检查。",
+    "模型置信度和几何筛选不是自由能势垒或催化活性的直接证据。",
+    "候选漏斗分别统计骨架数、序列数、表达数、活性数；重设计与新骨架分开。"
+  ],
+  "source_ambiguities": [
+    "原文列Asp175固定原子含Cδ；标准Asp侧链命名没有Cδ。需对照实际输入/PDB映射，不能直接照抄。",
+    "概述称每轮10序列，详细第三轮为100序列；暂按分轮细节记录，执行前核对代码。"
+  ],
+  "unverified": [
+    "实际模型权重/代码版本与论文实验的一致性",
+    "全部筛选脚本和RASA阈值",
+    "35条设计绝对酶浓度与周转计量",
+    "原始实验数据与拟合重现"
+  ]
+}

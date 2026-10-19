@@ -1,0 +1,689 @@
+{
+  "status": "EVIDENCE_EXTRACTION_IN_PROGRESS",
+  "scope": "各种酶设计路径，优先有湿实验的原始研究；为后续自主设计提供可追溯上下文",
+  "review_date": "2026-10-17",
+  "prior_artifact": "enzyme_design_workflow_v1.md",
+  "sources": [
+    {
+      "id": "E001",
+      "route": "theozyme_scaffold",
+      "title": "Kemp elimination catalysts by computational enzyme design",
+      "year": 2008,
+      "url": "https://www.nature.com/articles/nature06879",
+      "evidence_note": "八个设计酶具有模型反应活性；随后定向进化提升",
+      "workflow": "新反应催化几何→已有骨架匹配→实验筛选→进化",
+      "review_depth": "search_metadata_or_abstract_only",
+      "quantitative_metrics_verified": false
+    },
+    {
+      "id": "E002",
+      "route": "theozyme_scaffold",
+      "title": "De novo computational design of retro-aldol enzymes",
+      "year": 2008,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18323453/",
+      "evidence_note": "原始研究报告设计及实验；详细动力学待全文抽取",
+      "workflow": "机理与催化Lys/水网络→骨架匹配→序列设计",
+      "review_depth": "search_metadata_or_abstract_only",
+      "quantitative_metrics_verified": false
+    },
+    {
+      "id": "E003",
+      "route": "bimolecular_stereoselective",
+      "title": "Computational design of an enzyme catalyst for a stereoselective bimolecular Diels-Alder reaction",
+      "year": 2010,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3241958/",
+      "evidence_note": "原始论文报告实验表征、立体选择性与底物特异性",
+      "workflow": "双底物TS几何→匹配→口袋设计→产物/选择性验证",
+      "review_depth": "main_text_results_and_table_checked_supplement_pending",
+      "quantitative_metrics_verified": true,
+      "doi": "10.1126/science.1190239",
+      "experimental_evidence": {
+        "selected_designs": 84,
+        "soluble_proteins": 50,
+        "active_designs": 2,
+        "active_fraction_of_selected": 0.023809523809523808,
+        "active_fraction_of_soluble": 0.04,
+        "assay": "LC-MS/MS; PBS pH7.4, 298K",
+        "initial_DA20_kcat_per_hour": 0.1,
+        "optimized_DA20_kcat_per_hour": 2.13,
+        "optimized_variant": "DA_20_10, six additional mutations",
+        "controls": "Starting scaffold inactive; catalytic-residue and pocket reversions reduce activity",
+        "locator": "Main text experimental selection paragraph; Table1; catalytic mutation paragraphs"
+      },
+      "reuse_notes": [
+        "双底物动力学需分别记录两个Km，不能与单底物效率直接混排",
+        "命中率必须说明84个选择设计或50个可溶蛋白的分母",
+        "优化后性能不归给初始设计"
+      ],
+      "pending": [
+        "补充材料测定细节、原始色谱和序列核查"
+      ]
+    },
+    {
+      "id": "E004",
+      "route": "evolution_after_design",
+      "title": "Precision is essential for efficient catalysis in an evolved Kemp eliminase",
+      "year": 2013,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24132235/",
+      "evidence_note": "报告进化后的反应加速；不可归因于初始计算设计",
+      "workflow": "计算起点→定向进化→结构/动力学归因",
+      "review_depth": "search_metadata_or_abstract_only",
+      "quantitative_metrics_verified": false
+    },
+    {
+      "id": "E005",
+      "route": "generative_backbone",
+      "title": "Computational design of serine hydrolases",
+      "year": 2025,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12288761/",
+      "evidence_note": "期刊首发版第2–5页已核查；已区分探针、单次酰化和多次周转，部分分母仍待SI核实。",
+      "workflow": "催化几何→扩散骨架→序列设计→局部构象集合筛选",
+      "review_depth": "journal_first_release_pages2_to5_checked_supplement_pending",
+      "quantitative_metrics_verified": true,
+      "doi": "10.1126/science.adu2454",
+      "experimental_evidence": {
+        "locator": "Science first release 2025-02-13, pages 2–5; figures and SI not yet audited",
+        "campaigns": [
+          {
+            "stage": "sequence redesign and full-cycle PLACER filtering of prior round3 backbones excluding win",
+            "tested": 20,
+            "active": 2
+          },
+          {
+            "stage": "new N+1 oxyanion motif with 4MU-PhAc",
+            "designed": 66,
+            "total_active": null,
+            "best": "momi",
+            "kcat_per_s": 0.1,
+            "efficiency_M_inverse_s_inverse": 1240
+          },
+          {
+            "stage": "N-terminal extension of experimentally identified momi, parent retained",
+            "tested": 65,
+            "active": 65,
+            "best": "momi120",
+            "efficiency_M_inverse_s_inverse": 4300
+          }
+        ],
+        "limitation": "65/65属于已知活性亲本的改建，不能称为任意从头酶设计100%命中率。",
+        "failure": "kent1约10次周转后失活；质谱观察到稳定酰化物种，原因仍为假说。",
+        "early_rounds": [
+          {
+            "round": 1,
+            "tested": 129,
+            "reported_ester_response": 2,
+            "interpretation": "约一个酶当量产物后平台；不是持续周转成功",
+            "filter": "AF2"
+          },
+          {
+            "round": 2,
+            "tested": 192,
+            "reported_ester_response": 10,
+            "interpretation": "约一个酶当量后平台，质谱支持酰化停滞",
+            "filter": "AF2 + apo PLACER"
+          },
+          {
+            "round": 3,
+            "tested": 132,
+            "FP_labelled": 111,
+            "ester_response": 20,
+            "multiple_turnover": 2,
+            "denominator_note": "正文20例标18%；20/111约18%，20/132约15.2%，必须核对图及SI后确认条件分母",
+            "filter": "apo + AEI PLACER; added acid and second oxyanion donor"
+          }
+        ],
+        "win_redesign": [
+          {
+            "states": 2,
+            "tested": 45,
+            "FP_labelled": 38,
+            "lysate_activity_above_background": 9
+          },
+          {
+            "states": 4,
+            "tested": 11,
+            "FP_labelled": 10,
+            "activity": 8
+          }
+        ]
+      },
+      "local_sources": [
+        {
+          "path": "papers/E005_journal.pdf",
+          "url": "https://www.bakerlab.org/wp-content/uploads/2025/02/science.adu2454.pdf",
+          "version": "Science first release 2025-02-13; not asserted identical to final paginated version",
+          "sha256": "3ef00c4f73e0e8c31e8b2963b075fd9b3d1edddfb8e224a95facb92a81c17602"
+        },
+        {
+          "path": "papers/E005.pdf",
+          "url": "https://digital.lib.washington.edu/server/api/core/bitstreams/5c138e6e-4a63-4c24-995d-0e511bad7ec4/content",
+          "version": "Anna Lauko PhD dissertation 2024, 79 pages; NOT journal paper",
+          "use": "excluded from journal metrics"
+        }
+      ],
+      "reuse_notes": [
+        "明确区分探针标记、单次酰化、多次催化周转",
+        "全反应循环构象筛选可用于旧骨架序列重设计，也可用于新催化几何的骨架生成",
+        "局部骨架重建与从头生成应分别统计；优良初始速率仍需排查失活",
+        "不同设计轮同时改变催化基团和筛选策略，不能把提升全部归因于PLACER",
+        "晶体结构未包含底物或TS类似物时，不能声称直接观察到过渡态结合",
+        "小Km不必然代表紧结合：win论文解释为快速酰化的动力学结果"
+      ],
+      "pending": [
+        "其余正文、补充材料与最终发表版本核对",
+        "各轮筛选分母及活性定义完整提取",
+        "控制实验和动力学条件"
+      ]
+    },
+    {
+      "id": "E006",
+      "route": "generative_metalloenzyme",
+      "title": "Computational design of metallohydrolases",
+      "year": 2025,
+      "url": "https://www.nature.com/articles/s41586-025-09746-w",
+      "evidence_note": "作者托管期刊PDF已部分直接核查；补充材料、ZETA4数值差异与原始数据复核仍待完成。",
+      "workflow": "量化几何→RFdiffusion2→序列/结构筛选→湿实验",
+      "review_depth": "author_hosted_journal_pdf_pages1_3_4_5_6_7_partially_checked_SI_pending",
+      "quantitative_metrics_verified": true,
+      "reuse_notes": [
+        "RFD2直接围绕侧链功能原子生成骨架；不要把RFD3教程等同此论文实现",
+        "构象筛选应检查金属供体和底物相对位置；论文图注提示His与Asp竞争配位",
+        "设计模型是催化结构假说，需实验确认；不能由预测折叠成功推断催化活性",
+        "Zn浸泡晶体中H110翻转并与表面Zn结合；整体结构相近不代表所有配位几何一致",
+        "首次筛选使用PLACER；同骨架七个被淘汰设计的表达和低活性结果属于回顾性验证，需单列"
+      ],
+      "resources": {
+        "code": "https://github.com/baker-laboratory/Metallohydrolase_Enzyme_Design",
+        "DFT": "Supplementary Data 1",
+        "sequences": "Supplementary Data 2",
+        "models": "Supplementary Data 3",
+        "PDB": [
+          "9PYJ",
+          "9PYL"
+        ]
+      },
+      "pending": [
+        "核对现行终版与ZETA4数值差异",
+        "读SI反应条件与完整方法",
+        "核对第二轮设计变化及独立骨架去重",
+        "提取官方脚本与输入输出规范"
+      ],
+      "experimental_evidence": {
+        "locator": "author-hosted PDF pp3–5",
+        "campaigns": [
+          {
+            "round": 1,
+            "tested": 96,
+            "expressed_soluble": 86,
+            "activity_above_background": 5,
+            "efficiency_above_1000": 1
+          },
+          {
+            "round": 2,
+            "tested": 96,
+            "expressed_soluble": 85,
+            "substantial_zinc_dependent_activity": 11,
+            "efficiency_above_1000": 11,
+            "distinct_active_folds": 3
+          }
+        ],
+        "threshold_units": "M^-1 s^-1",
+        "ZETA1_efficiency": 16000,
+        "ZETA2_efficiency": 53000,
+        "ZETA2_kcat_per_s": 1.5,
+        "ZETA1_turnovers": "at least 1000; background subtracted per Fig3 caption",
+        "controls": "Chelation removes activity; Zn addition restores activity; catalytic mutants characterized",
+        "caution": "设计数、骨架数、总活性与高效率阈值命中数分别统计"
+      },
+      "local_source": {
+        "path": "papers/E006_journal.pdf",
+        "url": "https://www.ipd.uw.edu/wp-content/uploads/2025/12/s41586-025-09746-w.pdf",
+        "sha256": "81a7de28846cdf5ec96e6620d4fe34f8f78326d633d549adc127d32b13978d5d",
+        "version_note": "作者机构PDF，首页在线日期为占位符；未确认与现行出版社终版一致"
+      },
+      "unresolved_discrepancies": [
+        "作者PDF正文p4 ZETA4为1100±200，Fig4文字提取为1300±100 M^-1 s^-1；暂不选定精确值，待终版与SI核对"
+      ],
+      "publication_dates": {
+        "online": "2025-12-03",
+        "issue_year": 2026,
+        "evidence": "official repository README, publisher reconciliation pending"
+      },
+      "code_commit": "1072dd09f824d3dc91e92d9fadb516e4151774d2"
+    },
+    {
+      "id": "E007",
+      "route": "family_language_model",
+      "title": "Large language models generate functional protein sequences across diverse families",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s41587-022-01618-2",
+      "evidence_note": "生成溶菌酶有活性和结构数据；不能外推任意新反应",
+      "workflow": "家族数据→条件语言模型/微调→生成→表达与活性测定",
+      "review_depth": "direct_main_text_partial_supplement_pending",
+      "quantitative_metrics_verified": false,
+      "fulltext_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10400306/",
+      "verified_scope": {
+        "new_wetlab": "Generated lysozymes after family fine-tuning",
+        "CM_MDH": "Generated sequence analyses plus activity prediction against previously published experimental datasets, not new prospective wet-lab validation of those generations",
+        "without_finetuning": "Not experimentally tested in this study",
+        "interpretation": "Supports expansion within learned functional families; not evidence of arbitrary new chemistry or folds"
+      },
+      "pending": [
+        "Lysozyme experimental denominators and controls",
+        "Supplementary assay details",
+        "Pin released code and checkpoints"
+      ]
+    },
+    {
+      "id": "E008",
+      "route": "ml_directed_evolution",
+      "title": "Machine learning-assisted directed protein evolution with combinatorial libraries",
+      "year": 2019,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6500146/",
+      "evidence_note": "已核对正文结果和更正；补充材料待审；GB1结合基准与催化实验分别记录。",
+      "workflow": "小型实测组合库→监督模型→推荐变体→实验反馈",
+      "review_depth": "main_text_results_and_correction_checked_supplement_pending",
+      "quantitative_metrics_verified": true,
+      "doi": "10.1073/pnas.1901979116",
+      "experimental_evidence": {
+        "reaction": "heme Rma NOD carbene Si-H insertion",
+        "training_sequence_function_pairs": 445,
+        "predicted_variants_tested": 360,
+        "total_variants_tested": 805,
+        "rounds": 2,
+        "positions": 7,
+        "final_ee_percent": {
+          "S": 93,
+          "R": 79
+        },
+        "locator": "Results: Application to Evolution of Enantiodivergent Enzyme Activity",
+        "scope": "Whole-cell assay; GB1 benchmark is binding, not enzyme catalysis"
+      },
+      "correction": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6955331/",
+        "doi": "10.1073/pnas.1921770117",
+        "affected": [
+          "Figure4",
+          "Table2",
+          "SI TableS4"
+        ],
+        "specific_fix": "VCHV-background PVV selectivity is92% S ee, not87%; use corrected table",
+        "SI_checked": false
+      },
+      "reuse_notes": [
+        "先有可靠实测序列-功能数据，再用模型选择组合库",
+        "全细胞选择性受背景血红素活性和表达影响，需独立控制",
+        "不能把GB1模拟优势当作催化实验命中率"
+      ],
+      "pending": [
+        "更正后的Figure4具体分母图像与SI TableS4核查"
+      ]
+    },
+    {
+      "id": "E009",
+      "route": "industrial_evolution",
+      "title": "Biocatalytic asymmetric synthesis of chiral amines from ketones applied to sitagliptin manufacture",
+      "year": 2010,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20558668/",
+      "evidence_note": "工业转氨酶工程原始研究；工艺指标待全文抽取",
+      "workflow": "已有酶→底物适配→进化→工艺条件筛选",
+      "review_depth": "search_metadata_or_abstract_only",
+      "quantitative_metrics_verified": false,
+      "doi": "10.1126/science.1188934",
+      "verified_abstract_sequence": [
+        "Parent supports reaction chemistry but lacks target-ketone activity",
+        "Substrate walking, modeling and mutation establish marginal target activity",
+        "Directed evolution develops manufacturing suitability"
+      ],
+      "supporting_sources": [
+        {
+          "url": "https://www.epa.gov/greenchemistry/presidential-green-chemistry-challenge-2010-greener-reaction-conditions-award",
+          "type": "official award account, not additional primary study",
+          "verified_scope": "Historical report: pilot scale in2009, commercialization planned; not proof of present deployment",
+          "process_metrics_reported": {
+            "productivity_improvement_percent": 56,
+            "overall_yield_increase_percent_range": [
+              10,
+              13
+            ],
+            "overall_waste_reduction_percent": 19
+          },
+          "metric_caution": "Process-level comparison, not kcat or intrinsic catalytic efficiency"
+        }
+      ],
+      "pending": [
+        "Publisher full text returned403; mutation history and assay conditions require full paper/SI",
+        "Define baseline and normalization of activity improvements before quantitative comparison"
+      ]
+    },
+    {
+      "id": "E010",
+      "route": "noncanonical_catalysis",
+      "title": "Design and evolution of an enzyme with a non-canonical organocatalytic mechanism",
+      "year": 2019,
+      "url": "https://www.nature.com/articles/s41586-019-1262-8",
+      "evidence_note": "设计与进化实验研究；非天然氨基酸引入要求待核对",
+      "workflow": "非天然催化基团→蛋白环境设计→进化",
+      "review_depth": "search_metadata_or_abstract_only",
+      "quantitative_metrics_verified": false
+    },
+    {
+      "id": "E011",
+      "route": "artificial_cofactor_metalloenzyme",
+      "title": "Directed evolution of artificial metalloenzymes for in vivo metathesis",
+      "year": 2016,
+      "url": "https://www.nature.com/articles/nature19114",
+      "doi": "10.1038/nature19114",
+      "review_depth": "abstract_and_extended_data_captions_checked_main_text_pending",
+      "quantitative_metrics_verified": false,
+      "evidence_note": "摘要报告周质中人工复分解酶的组装与进化；扩展图注包含游离辅因子比较、独立蛋白批次与UPLC-MS筛选。",
+      "workflow": "非天然金属辅因子装载→适配细胞区室→蛋白进化→产物验证",
+      "reuse_notes": [
+        "需把游离辅因子背景与蛋白贡献分开",
+        "区室与细胞抑制物属于设计变量；不能直接套用天然金属酶流程"
+      ],
+      "resources": {
+        "PDB": [
+          "5F2B",
+          "5IRA"
+        ]
+      },
+      "pending": [
+        "正文与补充表",
+        "完整筛选分母与动力学"
+      ]
+    },
+    {
+      "id": "E012",
+      "route": "ancestral_sequence_reconstruction",
+      "title": "Engineering highly functional thermostable proteins using ancestral sequence reconstruction",
+      "year": 2018,
+      "url": "https://www.nature.com/articles/s41929-018-0159-5",
+      "doi": "10.1038/s41929-018-0159-5",
+      "review_depth": "primary_author_hosted_abstract_checked",
+      "quantitative_metrics_verified": false,
+      "evidence_note": "作者团队摘要已直接读取；正文、测定定义和重建不确定性仍待核查。",
+      "workflow": "同源序列与系统发育→祖先候选→表达与功能验证",
+      "pending": [
+        "全文实验指标与祖先推断不确定性",
+        "温稳性与催化活性分别核对"
+      ],
+      "author_source": "https://bodenlab.github.io/GRASP-suite/publication/engineering_highly_functional/",
+      "abstract_evidence": {
+        "systems": [
+          "animal cytochrome P450",
+          "bacterial ketol-acid reductoisomerase"
+        ],
+        "CYP3": "Improved thermal/solvent tolerance with comparable activity and broad substrate range relative to CYP3A4",
+        "KARI": "Reported eightfold higher specific activity than E.coli counterpart at25C",
+        "metric_caution": "Reported 60T50 must not be relabeled melting temperature; specific activity must not be relabeled kcat/Km"
+      }
+    },
+    {
+      "id": "E013",
+      "route": "sequence_structure_stabilization",
+      "title": "Automated Structure- and Sequence-Based Design of Proteins for High Bacterial Expression and Stability",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27425410/",
+      "doi": "10.1016/j.molcel.2016.06.012",
+      "review_depth": "abstract_and_full_erratum_checked_original_main_text_pending",
+      "quantitative_metrics_verified": false,
+      "evidence_note": "原论文摘要与更正全文已核查；更正修复补充脚本参数遗漏，不是实验数值修订。",
+      "workflow": "结构与同源序列→稳定性设计→表达/稳定性/活性分别验证",
+      "reuse_notes": [
+        "可作为其他设计路线的辅助阶段",
+        "表达产量提升不等于单位酶催化效率提升"
+      ],
+      "correction": {
+        "doi": "10.1016/j.molcel.2018.03.035",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29677494/",
+        "status": "existence_verified_content_pending"
+      },
+      "pending": [
+        "Original full-text experimental audit",
+        "Corrected script archive inspection before execution"
+      ],
+      "correction_audit": {
+        "doi": "10.1016/j.molcel.2018.03.035",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5919778/",
+        "scope": "DataS1 Rosetta script correction",
+        "finding": "design.xml omitted res_type_constraint, causing crash; corrected value0.4; unused design_text removed",
+        "implication": "Use corrected supplemental scripts; notice does not revise experimental measurements",
+        "execution_verified": false
+      }
+    },
+    {
+      "id": "E014",
+      "route": "rfd3_all_atom",
+      "title": "De novo Design of All-atom Biomolecular Interactions with RFdiffusion3",
+      "year": 2025,
+      "doi": "10.1101/2025.09.18.676967",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12458353/",
+      "publication_status": "preprint in retrieved PubMed record; journal version not verified",
+      "review_depth": "v2_main_text_and_selected_supplement_methods_checked",
+      "quantitative_metrics_verified": true,
+      "evidence_note": "v2正文、图4及部分补充方法已核查；完整补充材料和周转计量仍待审。",
+      "workflow": "All-atom motif conditioning around cysteine hydrolase active site, then experimental screening",
+      "pending": [
+        "Obtain SI, inspect turnover definition, controls, assay conditions and kinetic units",
+        "Confirm unique scaffolds and expression denominator",
+        "Publication status beyond retrieved preprint record remains unverified"
+      ],
+      "local_source": {
+        "path": "papers/E014_fulltext.xml",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12458353/fullTextXML",
+        "version": "PMC12458353.2; epub 2025-11-19",
+        "sha256": "fa70b40dffb2461ec1fbe32edd70136f5a4b17c6e8c3ed6a65d3a6d54791e5f1"
+      },
+      "experimental_evidence": {
+        "screened_designs": 190,
+        "reported_multi_turnover_designs": 35,
+        "fraction": 0.18421052631578946,
+        "substrate": "4-methylumbelliferyl phenyl acetate",
+        "motif": "Ulp-1-derived Cys-His-Asp, Gln and flanking backbone; first tetrahedral intermediate geometry",
+        "locator": "experimental evaluation paragraph; Figure4 caption",
+        "kinetics": "Figure4 caption confirms Michaelis-Menten analysis; exact conditions and units require supplement/figure inspection"
+      },
+      "supplement_files": [
+        "media-1.pdf",
+        "NIHPP2025.09.18.676967V2-supplement-1.pdf"
+      ],
+      "partial_supplement_audit": "rfd3_supplement_audit.json",
+      "workflow_artifact": "rfd3_workflow.json",
+      "supplement_scope": "Design pipeline and experimental methods selected pages; not full supplement audit"
+    },
+    {
+      "id": "E015",
+      "route": "rfd2_method_benchmark",
+      "title": "Atom-level enzyme active site scaffolding using RFdiffusion2",
+      "year": 2026,
+      "publication_dates": {
+        "online": "2025-12-03",
+        "issue_year": 2026
+      },
+      "doi": "10.1038/s41592-025-02975-x",
+      "url": "https://www.nature.com/articles/s41592-025-02975-x",
+      "review_depth": "direct_main_text_results_methods_partial_supplement_pending",
+      "quantitative_metrics_verified": true,
+      "evidence_note": "41/41 AME cases describe computational scaffolding, not 41 wet-lab-active enzymes.",
+      "reported_results_pending_full_audit": {
+        "AME_cases": 41,
+        "AME_scaffolded": 41,
+        "previous_method_scaffolded": 16,
+        "cysteine_designs_screened": 48,
+        "cysteine_total_active": null,
+        "cysteine_substrate": "4MU-butyrate",
+        "cysteine_motif": "Cys-His-Asn and Gln; papaya hydrolase PDB1PPN",
+        "kinetic_caution": "Indexed prose describes 248±34 M^-1 s^-1 for acylation; verify fit definition before comparing steady-state efficiencies"
+      },
+      "overlap": {
+        "related": "E006",
+        "status": "Confirmed by main-text explicit companion-paper reference",
+        "shared_campaigns": [
+          "4MU-butyrate Zn hydrolase",
+          "4MU-phenylacetate Zn hydrolase",
+          "general-base second-round Zn hydrolase"
+        ],
+        "counting_rule": "Two papers, overlapping experiments; do not add these campaigns twice."
+      },
+      "reuse_notes": [
+        "Native crystal-derived motifs test scaffolding without independently validating a newly invented theozyme",
+        "DFT-derived motifs add uncertainty from chemical mechanism and geometry",
+        "RFD3 cysteine result uses different motif and substrate; not a controlled model-only comparison"
+      ],
+      "pending": [
+        "SI benchmark and assay details",
+        "Raw-data identity across companion records",
+        "Acylation versus steady-state fit definition"
+      ],
+      "direct_audit": {
+        "sections": [
+          "AME benchmark",
+          "In vitro experiments",
+          "Methods"
+        ],
+        "retroaldolase": {
+          "tested": 96,
+          "detectable": 4,
+          "best_efficiency_M_inv_s_inv": 6.34,
+          "reported_uncertainty": 0.92
+        },
+        "AME": "100 backbones/case; eight sequences/backbone; predicted motif agreement and clash gates, not activity.",
+        "cysteine": "48 tested; active count unspecified; 248±34 M^-1 s^-1 explicitly acylation-step metric.",
+        "count_caution": "General prose says fewer than96; detailed experiments include96. Use detailed counts."
+      }
+    },
+    {
+      "id": "E016",
+      "route": "generated_scaffold_library_RIF_matching",
+      "title": "De novo design of luciferases using deep learning",
+      "year": 2023,
+      "doi": "10.1038/s41586-023-05696-3",
+      "url": "https://www.nature.com/articles/s41586-023-05696-3",
+      "review_depth": "direct_main_text_partial_supplement_pending",
+      "quantitative_metrics_verified": true,
+      "local_source": "papers/E016_fulltext.xml",
+      "workflow": "NTF2 family-wide hallucination → substrate conformers/RIF docking → Rosetta sequence design → pooled colony screen → purified characterization → mutational optimization",
+      "experimental_evidence": {
+        "scaffolds_generated": 1615,
+        "designs_ordered_as_pooled_oligos": 7648,
+        "active_designs_identified": 3,
+        "individual_library_members_experimentally_covered": null,
+        "initial_best": "LuxSit",
+        "optimized_best": "LuxSit-i",
+        "optimized_substitutions": 3,
+        "optimized_efficiency_M_inv_s_inv": 1000000,
+        "structure": "AF2 agreement; LuxSit crystal structure not obtained"
+      },
+      "limits": [
+        "Do not label 3/7648 as coverage-corrected hit rate.",
+        "Million-scale efficiency belongs to optimized variant, not initial design.",
+        "Luminescence intensity is not interchangeable with catalytic turnover rate."
+      ],
+      "pending": [
+        "Pooled-library coverage and screening controls",
+        "SI kinetic calibration and substrate-consumption evidence",
+        "Code snapshot and reproducibility"
+      ]
+    },
+    {
+      "id": "E017",
+      "route": "rfd_metalloprotease",
+      "title": "Computational design of metalloproteases",
+      "year": 2026,
+      "publication_date": "2026-10-14",
+      "doi": "10.1038/s41586-026-11167-2",
+      "url": "https://www.nature.com/articles/s41586-026-11167-2",
+      "review_depth": "publisher_abstract_and_data_availability",
+      "quantitative_metrics_verified": false,
+      "reported_abstract": {
+        "tested_designs": 135,
+        "reported_active_percent": 36,
+        "exact_active_count": null,
+        "bond": "targeted peptide amide bond",
+        "initial_rate_enhancement_lower_bound": 100000000,
+        "after_four_substitutions_lower_bound": 10000000000
+      },
+      "model_version": "RFdiffusion methods; references include RFdiffusion3; per-campaign version not yet verified",
+      "data_code_archive": "https://doi.org/10.5281/zenodo.22654831",
+      "pending": [
+        "Main text and SI; per-campaign model version",
+        "Exact denominators and substrate-specific activity definitions",
+        "Rate-enhancement baseline and assay conditions",
+        "Check independence from existing repository campaigns"
+      ],
+      "limits": [
+        "Rounded36% does not determine exact active count.",
+        "Uncatalysed-rate enhancement is not kcat/Km.",
+        "Abstract evidence does not establish clinical efficacy."
+      ]
+    }
+  ],
+  "statistics": {
+    "unique_primary_studies": 17,
+    "route_labels": 16,
+    "full_text_audited": 0,
+    "supplements_audited": 0,
+    "main_text_partially_audited": 8,
+    "corrections_checked": 2,
+    "quantitative_studies_checked": 7,
+    "corrections_identified": 2,
+    "explicitly_identified_preprints": 1,
+    "independent_experimental_campaigns": "not yet deduplicated; do not infer from study count",
+    "evidence_depth_groups": {
+      "direct_main_text_partial": [
+        "E003",
+        "E005",
+        "E006",
+        "E008",
+        "E014",
+        "E015",
+        "E016",
+        "E007"
+      ],
+      "abstract_or_metadata": [
+        "E001",
+        "E002",
+        "E004",
+        "E009",
+        "E010",
+        "E012",
+        "E013",
+        "E017"
+      ],
+      "abstract_and_extended_captions": [
+        "E011"
+      ],
+      "indexed_primary_excerpts_only": []
+    },
+    "route_labels_note": "标签含具体反应、设计方式与方法基准，不等于互斥设计路线",
+    "quantitative_studies_checked_note": "仅选定正文数字核查，不代表全部数据、SI或独立复现已完成"
+  },
+  "next_work": [
+    "优先核查E005丝氨酸水解酶、E006金属水解酶及RFdiffusion2方法论文；避免伴随论文重复累计实验批次",
+    "核查RFdiffusion3原始论文的酶实验与补充材料，区别于Foundry教程",
+    "补查2026金属蛋白酶新论文，核实具体RFD版本及实验范围",
+    "按版本整理输入输出映射、固定原子、配体表示、序列与回折叠流程，再建立可复用选择规则",
+    "逐篇核查全文与补充材料，提取 tested/active 分母、动力学、对照、产物鉴定、表达及复现资源",
+    "补充人工金属酶、祖先重建、共识/稳定性设计、天然酶功能重定位、底物/反应条件化生成路线",
+    "核对ML进化论文更正 https://pmc.ncbi.nlm.nih.gov/articles/PMC6955331/",
+    "形成路线选择条件、输入输出契约和失败诊断；不要将工具可运行等同于实验成功"
+  ],
+  "quality_rules": [
+    "搜索命中不等于全文核查",
+    "表达/结合/折叠不能代替催化产物与周转证据",
+    "区分初始设计与进化后性能",
+    "来源按唯一研究去重，不按网页数量累计",
+    "未知分母或条件留空，不推测"
+  ],
+  "research_priority": {
+    "user_preference": "重点关注RFD相关内容",
+    "focus": [
+      "RFdiffusion酶设计湿实验",
+      "RFD版本与论文证据对应",
+      "活性位点输入、序列设计、回折叠及构象筛选衔接",
+      "实验分母、初始设计与进化后性能、对照与失败原因"
+    ],
+    "scope_note": "保留其他路线，RFD优先；教程运行成功不计作湿实验验证。"
+  }
+}

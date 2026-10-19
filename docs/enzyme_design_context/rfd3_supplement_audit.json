@@ -1,0 +1,35 @@
+{
+  "source_id": "E014",
+  "scope": "Partial supplementary text audit; figures and raw data not fully audited",
+  "version": "bioRxiv 2025-11-19 v2",
+  "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12458353/supplementaryFiles",
+  "archive": "papers/E014_supplements.zip",
+  "evidence": [
+    {
+      "file": "media-1.pdf",
+      "pdf_page": 37,
+      "finding": "96 selected sequences plus 96 redesigned sequences; two synthesis QC failures yield 190 tested. These are not 190 independent backbones. Four-state scoring and within-family selection precede experiments."
+    },
+    {
+      "file": "NIHPP2025.09.18.676967V2-supplement-1.pdf",
+      "pdf_page": 17,
+      "finding": "Fig S8 caption calls 35 designs multi-turnover, with >10% substrate conversion threshold; normalized screen rates use mScarlet fluorescence. C6 purified kinetics technical n=3."
+    },
+    {
+      "file": "media-1.pdf",
+      "pdf_page": 38,
+      "finding": "C6 kinetics: 25 C, pH7.4, 5% DMSO, enzyme0.8uM; eight substrate concentrations from100uM by twofold dilution; initial rates <=10% conversion; matched background subtraction and 4MU calibration; nonlinear least squares."
+    }
+  ],
+  "interpretation": [
+    "35/190 is approximately18.4% under this screening definition, not independent-scaffold success rate.",
+    "Screen threshold >10% conversion and initial-rate fitting <=10% conversion refer to different purposes and are not contradictory.",
+    "Absolute IVTT enzyme concentrations and per-design turnover stoichiometry remain to be checked before independently endorsing multi-turnover for all35.",
+    "AF3 active-site predictions in S8 are not experimental structures."
+  ],
+  "pending": [
+    "Inspect figure axes and reported kinetic units",
+    "Check absolute screen protein concentration/turnover evidence",
+    "Audit raw data and independent experimental replicates"
+  ]
+}

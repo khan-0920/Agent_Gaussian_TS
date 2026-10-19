@@ -1,0 +1,38 @@
+{
+  "status": "IN_PROGRESS",
+  "priority_source": "用户明确要求重点关注RFD",
+  "evidence_queue": [
+    {
+      "title": "Atom-level enzyme active site scaffolding using RFdiffusion2",
+      "url": "https://www.nature.com/articles/s41592-025-02975-x",
+      "type": "primary_research",
+      "review": "E015正文部分核查，共享金属水解实验已确认",
+      "overlap_warning": "与金属水解酶伴随论文的实验可能重叠，研究数与独立实验数分开统计"
+    },
+    {
+      "title": "RFdiffusion3 enzyme tutorial",
+      "url": "https://github.com/RosettaCommons/foundry/blob/production/models/rfd3/docs/tutorials/enzyme_design_tutorial.md",
+      "type": "official_software_documentation",
+      "review": "已读取教程文本",
+      "observations": [
+        "使用unindex与select_fixed_atoms分别指定序列位置可变和空间固定原子",
+        "可控制配体原子埋藏/暴露；输出JSON包含残基映射",
+        "教程提供计算示例，不单独证明湿实验活性"
+      ],
+      "next": "锁定仓库commit与checkpoint后再形成可运行配方"
+    },
+    {
+      "title": "De novo design of All-atom Biomolecular Interactions with RFdiffusion3",
+      "url": "https://www.biorxiv.org/content/10.1101/2025.09.18.676967v2",
+      "type": "preprint_link_from_official_tutorial",
+      "review": "E014 v2正文与部分补充方法已核查；完整审计待完成"
+    },
+    {
+      "title": "Computational design of metalloproteases",
+      "url": "https://www.nature.com/articles/s41586-026-11167-2",
+      "type": "primary_research_search_lead",
+      "review": "E017出版社摘要及数据入口已核查；2026-10-14发表，具体模型分支待正文确认"
+    }
+  ],
+  "rfd3_primary_evidence": "E014: direct main text and selected supplement methods checked; see rfd3_workflow.json and rfd3_supplement_audit.json"
+}

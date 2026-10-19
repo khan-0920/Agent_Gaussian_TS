@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "import_date": "2026-10-19",
+  "source_review_date": "2026-10-17",
+  "purpose": "将既有多路线酶设计上下文接入 Agent_Gaussian_TS 的 Codex 研究决策入口；不是新增文献核查或计算复现。",
+  "copied_files": [
+    {
+      "source": "enzyme_design_knowledge/delivery_audit.json",
+      "file": "delivery_audit.json",
+      "sha256": "ba7cc5bc1d021d277393affa7627ccca637a9c21d6b2200d465726eed4db97fd",
+      "bytes": 2362
+    },
+    {
+      "source": "enzyme_design_knowledge/enzyme_design_guide_zh.md",
+      "file": "enzyme_design_guide_zh.md",
+      "sha256": "482397a0e074e6be8396dc030bfdb91aadd90b08f8961c5c11a17abb8cdc5d37",
+      "bytes": 10719
+    },
+    {
+      "source": "enzyme_design_knowledge/knowledge_index.json",
+      "file": "knowledge_index.json",
+      "sha256": "7dd1936d59324b8711e787627ef052ef6bd5ec865faa6c31f51da625034f5ab6",
+      "bytes": 3183
+    },
+    {
+      "source": "enzyme_design_knowledge/research_history.jsonl",
+      "file": "research_history.jsonl",
+      "sha256": "50e5ce4c3aac0ace7fde67f27dc4d4e714142ad2d134eef9a9070bca0f0324f6",
+      "bytes": 6259
+    },
+    {
+      "source": "enzyme_design_knowledge/rfd3_supplement_audit.json",
+      "file": "rfd3_supplement_audit.json",
+      "sha256": "62ef1ac4887ddd0a579d001d664ec489f4d992d99e9546158503e0ea96ebb553",
+      "bytes": 1902
+    },
+    {
+      "source": "enzyme_design_knowledge/rfd3_workflow.json",
+      "file": "rfd3_workflow.json",
+      "sha256": "b3d72971fbb32d54baecdffe0a5d2079fbb4cfdf573079966aef6f0089aaf54f",
+      "bytes": 3400
+    },
+    {
+      "source": "enzyme_design_knowledge/rfd_code_provenance.json",
+      "file": "rfd_code_provenance.json",
+      "sha256": "c2904b31561d25c79e45e5fc272797f20900ce6044c2e61aab840e75367b2051",
+      "bytes": 4600
+    },
+    {
+      "source": "enzyme_design_knowledge/rfd_focus.json",
+      "file": "rfd_focus.json",
+      "sha256": "4ebede05f57284967f78e8397b9a847c6b06bc6b8d567495b30bb2ff85948c87",
+      "bytes": 1901
+    },
+    {
+      "source": "enzyme_design_knowledge/rfd_serine_workflow.json",
+      "file": "rfd_serine_workflow.json",
+      "sha256": "d9a4700878eec6f1aae6bfe04c548856abe945b9ffdb0d3dc974a199218e8329",
+      "bytes": 1912
+    },
+    {
+      "source": "enzyme_design_knowledge/route_selection.json",
+      "file": "route_selection.json",
+      "sha256": "47b93dcd01422a5ef445fc87d1f0e5cd71e8bb99e97c9b06005394c7544658a2",
+      "bytes": 6303
+    },
+    {
+      "source": "enzyme_design_knowledge/source_catalog_zh.md",
+      "file": "source_catalog_zh.md",
+      "sha256": "e09688d532d7573287031ad53acdee6730d126ec0ec4f473abedbacca5ad664e",
+      "bytes": 4648
+    },
+    {
+      "source": "enzyme_design_knowledge/source_register.json",
+      "file": "source_register.json",
+      "sha256": "71131586613714a6c31fca1da1c04ed0de201eec0c08c9b13c16585063cf1fc3",
+      "bytes": 31749
+    },
+    {
+      "source": "enzyme_design_workflow_v1.md",
+      "file": "enzyme_design_workflow_v1.md",
+      "sha256": "24c2baf4ca609279362fec70504b1480ae542b4e56f714365fab400aafcda93f",
+      "bytes": 38876,
+      "source_sha256": "7feecd93562957931a4a2ab3e0b66b4f59abb11b9af9540ec25e5799781e3225",
+      "source_bytes": 38877,
+      "normalization": "Removed extra blank line at EOF; no content changes."
+    }
+  ],
+  "external_evidence_cache": {
+    "included_in_git": false,
+    "note": "以下 papers/ 原始论文、补充材料和上游代码缓存未随上下文提交；原始来源 URL 见 source_register.json、rfd3_supplement_audit.json 和 rfd_code_provenance.json。查验相关证据前需从原资料目录或登记的来源取得文件并核对版本；不可把相对路径当成仓库中已存在的文件。",
+    "files": [
+      {
+        "source": "enzyme_design_knowledge/papers/E005.pdf",
+        "relative_reference": "papers/E005.pdf",
+        "sha256": "6ffefdb1f16e6e90e2036a9c32dba1cf7c3e230d8d9196088e0e25175f3eeb3f",
+        "bytes": 9603072
+      },
+      {
+        "source": "enzyme_design_knowledge/papers/E005_journal.pdf",
+        "relative_reference": "papers/E005_journal.pdf",
+        "sha256": "3ef00c4f73e0e8c31e8b2963b075fd9b3d1edddfb8e224a95facb92a81c17602",
+        "bytes": 4315066
+      },
+      {
+        "source": "enzyme_design_knowledge/papers/E006_analysis.py",
+        "relative_reference": "papers/E006_analysis.py",
+        "sha256": "6e0e6782330b2251bc592d9fcc76b31a80bb59422c45bf3730fbd70e3557d5e2",
+        "bytes": 103485
+      },
+      {
+        "source": "enzyme_design_knowledge/papers/E006_journal.pdf",
+        "relative_reference": "papers/E006_journal.pdf",
+        "sha256": "81a7de28846cdf5ec96e6620d4fe34f8f78326d633d549adc127d32b13978d5d",
+        "bytes": 19708748
+      },
+      {
+        "source": "enzyme_design_knowledge/papers/E006_processing.py",
+        "relative_reference": "papers/E006_processing.py",
+        "sha256": "11b5f592cd10a00bd4b848fa32e65c7f4a54102bf8333d23af60265f7479595f",
+        "bytes": 27649
+      },
+      {
+        "source": "enzyme_design_knowledge/papers/E014_fulltext.xml",
+        "relative_reference": "papers/E014_fulltext.xml",
+        "sha256": "fa70b40dffb2461ec1fbe32edd70136f5a4b17c6e8c3ed6a65d3a6d54791e5f1",
+        "bytes": 171618
+      },
+      {
+        "source": "enzyme_design_knowledge/papers/E014_supplements.zip",
+        "relative_reference": "papers/E014_supplements.zip",
+        "sha256": "6e7b741265260422599b86236c327eba5c624f5b0b47ffded861c162f7a0f5a5",
+        "bytes": 15506205
+      },
+      {
+        "source": "enzyme_design_knowledge/papers/E016_fulltext.xml",
+        "relative_reference": "papers/E016_fulltext.xml",
+        "sha256": "c42fbbdbc4184a03ac3287b7c56541580a152082668cfbeb7430f6dc03d9cb1b",
+        "bytes": 116784
+      },
+      {
+        "source": "enzyme_design_knowledge/papers/metallohydrolase_repo_README.txt",
+        "relative_reference": "papers/metallohydrolase_repo_README.txt",
+        "sha256": "1851f2438c433960d633dd2942786c4c012ebdd350421346d6477c8252134e6d",
+        "bytes": 27813
+      }
+    ]
+  }
+}

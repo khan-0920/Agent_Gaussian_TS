@@ -1,0 +1,144 @@
+{
+  "status": "PROVISIONAL_SYNTHESIS",
+  "priority": "RFD",
+  "rules_are": "assistant synthesis, not independently reproduced protocols",
+  "routes": [
+    {
+      "route": "RFD motif scaffolding",
+      "evidence_ids": [
+        "E005"
+      ],
+      "choose_when_inferred": "Known catalytic geometry; explicit backbone motif enumeration",
+      "workflow_inferred": "Generate scaffold, design sequence, refold, evaluate reaction-state ensembles",
+      "limits": "Probe labelling and single acylation are not sustained turnover"
+    },
+    {
+      "route": "RFD2 atomic scaffolding",
+      "evidence_ids": [
+        "E006",
+        "E015"
+      ],
+      "choose_when_inferred": "Functional atom geometry known; residue positions and unspecified atoms free",
+      "workflow_inferred": "Generate around atomic motif; sequence and global/local structure screening",
+      "limits": "Check metal competition, substrate placement and metal dependence"
+    },
+    {
+      "route": "RFD local rebuilding",
+      "evidence_ids": [
+        "E005"
+      ],
+      "choose_when_inferred": "Experimentally active parent with identifiable geometric defect",
+      "workflow_inferred": "Rebuild selected region and compare activity to parent",
+      "limits": "Do not report parent-derived hit rates as independent de novo success"
+    },
+    {
+      "route": "Theozyme scaffold matching",
+      "evidence_ids": [
+        "E001",
+        "E002",
+        "E003"
+      ],
+      "choose_when_inferred": "Catalytic geometry plus compatible scaffold library",
+      "workflow_inferred": "Match geometry, redesign pocket, test catalysis",
+      "limits": "Scaffold may prevent essential backbone interactions"
+    },
+    {
+      "route": "ML-assisted evolution",
+      "evidence_ids": [
+        "E008"
+      ],
+      "choose_when_inferred": "Reliable sequence-function measurements available",
+      "workflow_inferred": "Train, propose variants, measure and update",
+      "limits": "Separate expression effects from intrinsic catalysis"
+    },
+    {
+      "route": "Stability engineering",
+      "evidence_ids": [
+        "E013"
+      ],
+      "choose_when_inferred": "Expression or stability is limiting; structure and homologs available",
+      "workflow_inferred": "Design stability variants and remeasure activity",
+      "limits": "Not new-reaction design; use corrected supplemental scripts; experimental and execution audits remain partial"
+    },
+    {
+      "route": "Artificial cofactor enzymes",
+      "evidence_ids": [
+        "E011"
+      ],
+      "choose_when_inferred": "Abiotic cofactor supports desired chemistry",
+      "workflow_inferred": "Install cofactor, adapt protein environment, evolve",
+      "limits": "Control free-cofactor activity and loading"
+    },
+    {
+      "route": "Family language generation",
+      "evidence_ids": [
+        "E007"
+      ],
+      "choose_when_inferred": "Relevant functional family data exists",
+      "workflow_inferred": "Condition generation on family and assay products",
+      "limits": "Cannot assume arbitrary novel chemistry"
+    },
+    {
+      "route": "Ancestral reconstruction",
+      "evidence_ids": [
+        "E012"
+      ],
+      "choose_when_inferred": "Homolog family and phylogeny available",
+      "workflow_inferred": "Infer ancestors, test stability and function",
+      "limits": "Author abstract supports selected examples of robustness and activity; no universal benefit or novel-chemistry claim. Full methods and ancestral uncertainty remain pending.",
+      "input_contract_inferred": [
+        "Curated homologs and alignment",
+        "Phylogenetic model and target ancestral node",
+        "Alternative reconstructions for uncertain positions",
+        "Matched extant-enzyme assay baseline"
+      ],
+      "output_contract_inferred": [
+        "Candidate sequences with node/probability provenance",
+        "Separate stability, specific activity and substrate-panel measurements"
+      ]
+    },
+    {
+      "route": "Generated scaffold library and active-site matching",
+      "evidence_ids": [
+        "E016"
+      ],
+      "choose_when_inferred": "Pocket-bearing fold family is available, but native scaffold diversity is insufficient",
+      "workflow_inferred": "Generate scaffold library, dock catalytic interaction fields, redesign sequences, screen and optimize",
+      "limits": "Fold-family bias and large experimental library; separate initial hits from optimized performance"
+    },
+    {
+      "route": "Substrate walking and parent-enzyme adaptation",
+      "evidence_ids": [
+        "E009"
+      ],
+      "choose_when_inferred": "Existing enzyme supports desired chemistry but does not accept target substrate",
+      "workflow_inferred": "Use substrate analogs and modeling to establish target activity, then evolve under relevant process constraints",
+      "limits": "Weak starting activity and final manufacturing performance belong to distinct stages; process productivity is not intrinsic enzyme kinetics"
+    },
+    {
+      "route": "RFD3 all-atom conditional generation",
+      "evidence_ids": [
+        "E014",
+        "E017"
+      ],
+      "choose_when_inferred": "Reaction-state geometry and atom-level ligand/environment constraints are available",
+      "workflow_inferred": "Condition generation on catalytic motif and ligand exposure; design sequences and evaluate relevant reaction states",
+      "limits": "E014 selected methods checked; E017 campaign-specific version remains unverified; do not treat mixed papers as controlled model comparison"
+    },
+    {
+      "route": "Noncanonical amino-acid catalysis",
+      "evidence_ids": [
+        "E010"
+      ],
+      "choose_when_inferred": "Desired chemistry benefits from a catalytic group outside standard amino acids",
+      "workflow_inferred": "Introduce the catalytic group in a protein environment and optimize by design/evolution",
+      "limits": "Abstract-level evidence here; incorporation, occupancy, free-catalyst controls and assay details need full-text verification"
+    }
+  ],
+  "RFD3": "E014: selected full-text and supplementary methods checked; rfd3_workflow.json; raw-data and full SI audit pending.",
+  "remaining": [
+    "supplements and code versions",
+    "deeper non-RFD evidence",
+    "user-facing practical handbook"
+  ]
+}
